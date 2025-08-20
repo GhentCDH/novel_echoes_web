@@ -1,0 +1,226 @@
+{
+  "charter": {
+    "editions": "",
+    "fullTextOfCharter": "",
+    "secondaryLiterature": "",
+    "summaryAndDescription": ""
+  },
+  "charters": {
+    "browseMap": "Carte",
+    "browseResults": "Résultats",
+    "charterIdMustBeAnInteger": "",
+    "form": {
+      "field": {
+        "actor": {
+          "label": "Acteur {index}"
+        },
+        "actor_diocese": {
+          "help": "Le diocèse ou l'archidiocèse médiéval dans lequel  un intervenant est situé  à la date de rédaction de la charte. Pour les archidiocèses de Reims, de Cologne et de Trèves tous les diocèses sont distingués. Pour les provinces ecclésiastiques extérieures à ces régions, seul les archidiocèses sont distingués (ex.: Rouen). Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Diocèse",
+          "placeholder": "Faites un choix"
+        },
+        "actor_function": {
+          "help": "La liste des toponymes se réfère au lieu où est située une institution (ex.: Gent (S.Pierre), ou à la seigneurie, la principauté ou le diocèse sur lesquels l'(les) intervenant détenait la juridiction à l'époque de la rédaction de la charte (ex.: Flandre-Hainaut). Ce menu déroulant partage avec celui du champ de recherche “Date de lieu” une liste commune de toponymes, aussi certaines requêtes peuvent ne pas retourner de résultat. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Function/titre",
+          "placeholder": "Faites un choix"
+        },
+        "actor_institution": {
+          "help": "Institution dans laquelle un codex  (cartulaire, registre, inventaire ou toute autre forme de compilation de documents) a été produit ou conservé ou pour laquelle des chartes ou des tritres de donation sont transcrits dans le codex. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Institution/juridiction",
+          "placeholder": "Faites un choix"
+        },
+        "actor_name": {
+          "help": "Les formes normalisées des noms d'auteurs, bénéficiaires, et/ou disposants mentionnés dans le texte de la charte. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Nom",
+          "placeholder": "Faites un choix"
+        },
+        "actor_order": {
+          "help": "L'ordre religieux auquel appartient un intervenant. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Ordre religieux",
+          "placeholder": "Faites un choix"
+        },
+        "actor_place": {
+          "label": "Place",
+          "placeholder": "Faites un choix"
+        },
+        "actor_principality": {
+          "help": "La principauté (royaume, comté, duché, seigneurie) dans laquelle  un intervenant est situé à la date de rédaction de la charte. Les frontières des principautés  étant mouvantes, il est possible qu'un intervenant (personne ou institution) soit situé dans plus d'une principauté au cours du temps. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Principauté",
+          "placeholder": "Faites un choix"
+        },
+        "actor_role": {
+          "help": "La fonction tenue par l' (les) intervenant(s) principal mentionné dans la charte: \t\t\t\t\t\t\t\t\t\t- Auteur: la personne physique ou morale au nom et sous la responsabilité de laquelle l'écrit est dressé. \t\t\t\t\t\t\t\t\t\t- Bénéficiaire: le bénéficiaire et/ou le destinataire en faveur de qui l'action juridique est faite et pour qui le document constitue un titre. \t\t\t\t\t\t\t\t\t\t- Disposant: la personne physique ou morale qui a accompli l'acte juridique consigné dans l'écrit. Elle peut se confondre avec l'auteur du document. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Rôle",
+          "placeholder": "Faites un choix"
+        },
+        "charter_id": {
+          "help": "Chaque charte enregistrée dans la base de données a reçu un numéro d'identification unique. Entrer le nunéro DiBe ID pour retrouver le document auquel il correspond.",
+          "label": "DiBe ID",
+          "placeholder": "DiBe ID"
+        },
+        "date_scholarly_any": {
+          "help": "Ce champ  autorise la recherche sur l'ensemble des dates qui ont pu être proposées pour une même charte  par l'érudition historique. Ces dates peuvent inclure des dates converties en raison du style (ex.: style de Noël, style de l'Annonciation, style de Pâques), des conjectures, des approximations, un terminus antequem ou postquem.  \t\t\t\t\t\t\t\t\t\tUne date comporte toujours huit chiffres: les deux premiers indiquent le jour, les deux suivants le mois et les quatre derniers l'année. Si le jour et/ou le mois sont inconnus, aucune information n'est donnée. Pour chacune de ces dates, le nom de l'auteur de la proposition, accompagné d'une explication succincte de la datation, est proposé. Entrer une date précise (année et/ou  mois et/ou jour) en utilisant  uniquement le champ Date gauche , ou définir  une période chronologique en utilisant à la fois les  champs Date gauche et droit.",
+          "label": "Datation interprétée"
+        },
+        "date_scholarly_preferential": {
+          "help": "Ce champ propose la date qui paraît la plus pertinente au regard de la recherche historique. Une date comporte toujours huit chiffres: les deux premiers indiquent le jour, les deux suivants le mois et les quatre derniers l'année. Si le jour et/ou le mois sont inconnus, aucune information n'est donnée. Entrer une date précise (année et/ou  mois et/ou jour) en utilisant  uniquement le champ Date gauche , ou définir  une période chronologique en utilisant à la fois les  champs Date gauche et droit.",
+          "label": "Datation interprétée préférentielle"
+        },
+        "date_unconverted": {
+          "help": "La date (sans conversion de style) mentionnée dans le texte de la charte, ou, en d'autres mots, la date à laquelle un document a été délivré ou prétend avoir été délivré. Une date comporte toujours huit chiffres: les deux premiers indiquent le jour, les deux suivants le mois et les quatre derniers l'année. Si le jour et/ou le mois sont inconnus, aucune information n'est donnée. Entrer une date précise (année et/ou  mois et/ou jour) en utilisant  uniquement le champ Date gauche , ou définir  une période chronologique en utilisant à la fois les  champs Date gauche et droit.",
+          "label": "Date dans la charte"
+        },
+        "fulltext": {
+          "help": "Pour de nombreuses chartes présentes dans Diplomata Belgica le texte complet du document est disponible. Ces textes sont basés autant que possible sur celui donné par les éditions critiques. Les requêtes peuvent être formulées en employant la syntaxe de recherche spécifique à Diplomata Belgica et respecter la langue du document. La langue des chartes latines a été normalisée : tous les v minuscules sont devenus u, tous les j sont devenus i.",
+          "label": "Recherche dans le texte du document",
+          "placeholder": "L'analyse ou régeste consiste en une brève description, aussi concise et précise que possible, du contenu juridique et historique de l'acte. Diplomata Belgica  étant à l'origine une base de données développée en français, toutes les analyses sont rédigées uniquement dans cette langue. Les analyses suivent autant que possible celles données par les éditions de textes. Les requêtes peuvent être formulées en employant la syntaxe de recherche spécifique à Diplomata Belgica."
+        },
+        "images": {
+          "help": "Cochez cette case d'option a pour résultat de ne sélectionner que les documents pour lesquels une image est disponible. Ces images peuvent être visionnées dans une fenêtre locale. Utilisez les combinaisons de touche Ctrl + or Ctrl- (ou Ctrl et la molette centrale de la souris)  pour réduire ou augmenter la taille de l'image.",
+          "label": "Images disponibles"
+        },
+        "language": {
+          "help": "Langue dans laquelle est écrite la charte (original). Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante. ",
+          "label": "Langue",
+          "placeholder": "Sélectionnez une langue"
+        },
+        "place_date": {
+          "help": "L'eschatocole de nombreux documents ne mentionne pas uniquement leurs dates, mais aussi le lieu où se sont produits l'acte juridique (lat.negotium)  ou la mise par écrit ou l'expédition de la charte. En plus du nom de lieu, la formule de datation peut apporter une information plus détaillée sur l'institution, cette information peut également être recherchée  dans la liste déroulante (ex.: quand la formule de datation mentionne Gandavi in monasterio sancti Bavonis, la liste déroulante autorise la sélection de “Gand (S.Bavon)”). \t\t\t\t\t\t\t\t\t\tLorsque le document mentionne uniquement dans la formule de datation le nom de l'institution (ex.: in monte blandinio), la localisation exacte de l'institution a été ajoutée (ex: Gand (S.Pierre)). \t\t\t\t\t\t\t\t\t\tCe menu déroulant partage avec celui du champ de recherche “Institution/Juridiction” une liste commune de toponymes, aussi certaines requêtes peuvent ne pas retourner de résultat. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Date de lieu",
+          "placeholder": "Faites un choix"
+        },
+        "summary": {
+          "help": "L'analyse ou régeste consiste en une brève description, aussi concise et précise que possible, du contenu juridique et historique de l'acte. Diplomata Belgica  étant à l'origine une base de données développée en français, toutes les analyses sont rédigées uniquement dans cette langue. Les analyses suivent autant que possible celles données par les éditions de textes. Les requêtes peuvent être formulées en employant la syntaxe de recherche spécifique à Diplomata Belgica.",
+          "label": "Recherche dans le résumé de l'acte",
+          "placeholder": "Recherche dans le résumé"
+        }
+      },
+      "legend": {
+        "actors": "Acteurs",
+        "analysis": "Analyse",
+        "datation": "Date de la charte",
+        "identification": "Identification",
+        "images": "Images"
+      }
+    },
+    "invalidSearchSyntax": "Syntaxe de recherche invalide",
+    "mapWarning": "",
+    "placedateCharters": ""
+  },
+  "form": {
+    "allAuthors": "Tous les auteurs",
+    "reset-filters": " Réinitialiser tous les filtres"
+  },
+  "label": {
+    "actors": "Auteurs",
+    "authenticity": "Véracité",
+    "author": "",
+    "authorOfTheActioJuridica": "Disposant | Disposants",
+    "authorsOfTheActioJuridica": "Disposants",
+    "beneficiaries": "Bénéficiares",
+    "beneficiary": "Bénéficiaire | Bénéficiaires",
+    "charterId": "DiBe ID",
+    "charters": "Chartes",
+    "date": "Datation",
+    "dateInTheCharter": "Date dans la charte",
+    "diocese": "Diocèse",
+    "edition": "Editions | Editions",
+    "editionsAndSecondaryLiterature": "Editions et travaux",
+    "fullTextOfCharter": "Texte du document",
+    "functionTitle": "Fonction/titre",
+    "id": "Id",
+    "images": "Images",
+    "institutionJurisdiction": "Institution/juridiction",
+    "issuer": "Auteur | Auteurs",
+    "language": "Langue | Langues",
+    "links": "Liens",
+    "mainBeneficiary": "Bénéficiaire principal",
+    "mainIssuer": "Auteur principal",
+    "map": "Carte",
+    "name": "Nom",
+    "natureOfTheCharter": "Nature diplomatique",
+    "no": "Non",
+    "original": "Original",
+    "placeDate(inTheText)": " Date de lieu (dans le texte) ",
+    "placeDate(normalised)": " Date de lieu  (normalisée) ",
+    "place_date": "Date de lieu",
+    "principality": "Principauté",
+    "reference": "Référence",
+    "religiousOrder": "Ordre religieux",
+    "repository": "Institution de conservation",
+    "returnToSearchPage": "Retourner aux résultats \t\t\t\t\t",
+    "scholarlyDating(any)": "Datation interprétée (toutes)",
+    "scholarlyDating(preferential)": "Datation interprétée (préférentielle)",
+    "search": "",
+    "secondaryLiterature": "Travaux",
+    "source": "Source",
+    "summary": "Résumé",
+    "summaryAndDescription": "Résumé et description",
+    "textualTradition": "Tradition de l'acte",
+    "tradition": "Tradition | Traditions",
+    "type": "Type",
+    "year": "",
+    "yes": "Oui"
+  },
+  "pagination": {
+    "perPage": "Par page"
+  },
+  "selectedItemsBasket": {
+    "selectedCharters": "Aucune charte sélectionnée | {count} charte sélectionnée | {count} chartes sélectionnées",
+    "selectedTraditions": "Aucune tradition sélectionnée | {count} tradition sélectionnée | {count} traditions sélectionnées"
+  },
+  "traditions": {
+    "form": {
+      "field": {
+        "images": {
+          "label": "Images disponibles"
+        },
+        "institutionsCoveredByTheManuscript": {
+          "help": "Institution dans laquelle un codex  (cartulaire, registre, inventaire ou toute autre forme de compilation de documents) a été produit ou conservé ou pour laquelle des chartes ou des tritres de donation sont transcrits dans le codex. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Localité concernée par le manuscrit",
+          "placeholder": "Faites un choix"
+        },
+        "name": {
+          "help": "Le dépôt d'archives, la bibliothèque ou la collection privée dans lesquels une charte ou un manuscrit (cartulaire, registre, inventaire) est actuellement conservé. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Institution de conservation",
+          "placeholder": "Faites un choix"
+        },
+        "place": {
+          "help": "Le lieu où est situé le dépôt d'archives ou la bibliothèque concernée. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Lieu de conservation",
+          "placeholder": "Faites un choix"
+        },
+        "reference": {
+          "help": "La cote de classement d'une charte ou d'un manuscrit indiquant son emplacement dans le dépôt d'archives ou la bibliothèque qui en assure la conservation. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Cote",
+          "placeholder": "Faites un choix"
+        },
+        "steinNumber": {
+          "help": "Cette liste déroulante contient le numéro de référence donné au manuscrit dans le répertoire bibliographique des cartulaires français établi par Henri STEIN, Bibliographie générale des cartulaires français ou relatifs à l'histoire de France (Manuels de Bibliographie historique, 4), Picard, Paris, 1907.",
+          "label": "Stein ID",
+          "placeholder": "Faites un choix"
+        },
+        "titleOfTheManuscript": {
+          "help": "Le titre donné au codex  (cartulaire, registre, inventaire ou toute autre forme de compilation de documents) durant le Moyen Âge ou à une  période postérieure. Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Titre du manuscrit",
+          "placeholder": "Faites un choix"
+        },
+        "type": {
+          "help": "Cochez cette case d'option a pour résultat de ne sélectionner que les documents pour lesquels une image est disponible. Ces images peuvent être visionnées dans une fenêtre locale.",
+          "label": "Type",
+          "placeholder": "Faites un choix"
+        },
+        "writingMaterial": {
+          "help": "Support d'écriture du codex  (cartulaire, registre, inventaire ou toute autre forme de compilation de documents). Entrez directement un critère de recherche ou sélectionnez le (les) dans la liste déroulante.",
+          "label": "Nature du support",
+          "placeholder": "Faites un choix"
+        }
+      },
+      "legend": {
+        "images": "Images",
+        "repository": "Conservation",
+        "tradition": "Tradition"
+      }
+    }
+  }
+}

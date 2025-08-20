@@ -1,0 +1,1 @@
+create role novel_echoes login password 'novel_echoes';

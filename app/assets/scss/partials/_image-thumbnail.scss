@@ -1,0 +1,28 @@
+.image-thumbnail {
+    padding-bottom: 25px;
+}
+
+img {
+    vertical-align: top;
+}
+
+.img-thumbnail {
+    margin: 5px;
+        &:hover {
+            box-shadow: 0 0 4px 4px $hover-color;
+    }
+
+        &::after {
+            display: block;
+            clear: both;
+            content: "";
+        }
+
+    cursor: zoom-in;
+    
+}
+
+// .openseadragon {
+//     width: 100%; 
+//     height: 800px;
+// }

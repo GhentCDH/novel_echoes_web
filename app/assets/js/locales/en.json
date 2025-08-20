@@ -1,0 +1,226 @@
+{
+  "charter": {
+    "resultIndexOfCount": "Result {index} of {count}"
+  },
+  "charters": {
+    "browseMap": "Browse map",
+    "browseResults": "Browse results",
+    "charterIdMustBeAnInteger": "Charter id must be an integer",
+    "form": {
+      "field": {
+        "actor": {
+          "label": "Actor {index}"
+        },
+        "actor_diocese": {
+          "help": "The medieval diocese or archbishopric in which an actor was located at the time when the charter was issued. For the archbishoprics of Reims, Cologne and Trier, all dioceses are listed. For the ecclesiastical provinces outside this region, only the archbishoprics are listed (e.g. Rouen). Enter one or select one or more options.",
+          "label": "Diocese",
+          "placeholder": "Select a diocese"
+        },
+        "actor_function": {
+          "help": "The function or quality of the person or the type of the institution mentioned in the charter as issuer, author of the actio juridica or beneficiary. When a person bore several titles referring to different functions, he/she is listed with the his/her most important title. Enter one or select one or more options.",
+          "label": "Function",
+          "placeholder": "Select a function"
+        },
+        "actor_institution": {
+          "help": "This list of toponyms refers to the place where an institution was located (e.g. Ghent (S. Bavo)), or to the lordship, principality or diocese over which actor(s) held jurisdiction at the time when the charter was issued (e.g. Flanders-Hainaut). For this drop-down menu, the same option list of toponyms is used as for the search field 'Place-date', so some search queries will return no result. Enter one or select one or more options.",
+          "label": "Institution/jurisdiction",
+          "placeholder": "Select an institution/jurisdiction"
+        },
+        "actor_name": {
+          "help": "The normalized names of issuers, beneficiaries and/or authors of the actio juridica mentioned in the charter texts. Enter one or select one or more options.",
+          "label": "Name",
+          "placeholder": "Select a name"
+        },
+        "actor_order": {
+          "help": "The religious order to which an actor belonged. Enter one or select one or more options.",
+          "label": "Religious order",
+          "placeholder": "Select an order"
+        },
+        "actor_place": {
+          "help": "This list of toponyms refers to the place where an institution was located (e.g. Ghent (S. Bavo)), or to the lordship, principality or diocese over which actor(s) held jurisdiction at the time when the charter was issued (e.g. Flanders-Hainaut). For this drop-down menu, the same option list of toponyms is used as for the search field 'Place-date', so some search queries will return no result. Enter one or select one or more options.",
+          "label": "Place",
+          "placeholder": "Select a place"
+        },
+        "actor_principality": {
+          "help": "The principality (kingdom, county, duchy, lordship) in which an actor was located at the time the charter was issued. Since the borders of principalities frequently changed, it is possible that one actor (person or institution) is located in more than one principality over the course of time. Enter one or select one or more options.",
+          "label": "Principality",
+          "placeholder": "Select a principality"
+        },
+        "actor_role": {
+          "help": "The role assumed by the main actor(s) mentioned in a charter:\n- Issuer: the individual or legal entity on behalf of, and under the responsibility of whom, the document was written.\n- Beneficiary: the addressee for whom the juridical act is performed and for whom the document has the value of a title deed.\n- Author of the actio juridica: the individual or legal entity that performed the juridical act (lat.: negotium) mentioned in the document. The author of the actio juridica and issuer of the document are often the same person/institution. Enter one or select one or more options.",
+          "label": "Role",
+          "placeholder": "Select a role"
+        },
+        "charter_id": {
+          "help": "Each charter registered in the database has a unique identification number. Enter a DiBe ID to search for one specific document.",
+          "label": "DiBe ID",
+          "placeholder": "DiBe ID"
+        },
+        "date_scholarly_any": {
+          "help": "This search option enables searching for all possible dates assigned by different scholars to the same charter. Scholarly datings may include converted dates according to style (e.g. Christmas style, Annunciation style, Easter style), conjectures, approximate dates, or 'termini ante quem' or 'post quem'. A date always consists of eight digits: the first two indicate the day, the next two the month, and the last four the year. If day and/or month are not known, no information is given. For each dating, the scholar proposing it as well as some explanation about his/her dating are given. Enter one specific date (year and/or month and/or day) by using only the date field on the left, or define a chronological range by using the two date fields.",
+          "label": "Scholarly dating"
+        },
+        "date_scholarly_preferential": {
+          "help": "This field offers the date that seems most appropriate according to historical research. A date always consists of eight digits: the first two indicate the day, the next two the month, and the last four the year. If day and/or month are not known, no information is given. Enter one specific date (year and/or month and/or day) by using only the date field on the left, or define a chronological range by using the two date fields.",
+          "label": "Preferential dates only"
+        },
+        "date_unconverted": {
+          "help": "The (unconverted) date mentioned in the charter text, or, in other words, the date at which an act was delivered or claims to have been delivered. A date always consists of eight digits: the first two indicate the day, the next two the month, and the last four the year. If day and/or month are not known, no information is given. Enter one specific date (year and/or month and/or day) by using only the date field on the left, or define a chronological range by using the two date fields.",
+          "label": "Date in charter"
+        },
+        "fulltext": {
+          "help": "For many of the charters included in Diplomata Belgica the full text of the document is available. Full texts are based as much as possible on existing critical editions. Queries can be entered using the specific DiBe Search syntax and should respect the language of the charter. The language of Latin charters has been normalized: all lowercase v’s have become u’s, all j’s have become i’s.",
+          "label": "Search in full text of charter",
+          "placeholder": "Search in full text"
+        },
+        "images": {
+          "help": "Select this box if your search should only comprise records containing images of the documents. DiBe Images can be viewed in separate pop-up windows. Use Ctrl/⌘ + or Ctrl/⌘ - (or Ctrl and mousewheel) to increase or reduce the size of the image and Ctrl/⌘ 0 to reset it.",
+          "label": "Images available"
+        },
+        "language": {
+          "help": "The language in which the (original) charter text is written. Enter one or select one or more options.",
+          "label": "Language",
+          "placeholder": "Select a language"
+        },
+        "place_date": {
+          "help": "The eschatocol of many documents mentions not only the date, but also the place of either the juridical act (lat. 'negotium') or the writing or issuing of the document. In this field, the place-date is only taken into account when it is included in the dating clause of the charter. Apart from the place-name, the dating clause may offer more detailed information on the institution, which is also searchable in the option list (e.g. when the dating clause mentions 'actum Gandavi in monasterio sancti Bavonis', the option list allows to select “Ghent (St. Bavo)”). When the document only mentions the name of the ecclesiastical institution in the dating clause (e.g. 'in monasterio Blandinio'), the actual location of this institution is added (e.g. Ghent (St. Peter)). For this drop-down menu the same option list of normalized toponyms is used as for the drop-down menu 'Institution/Jurisdiction', so some search queries will return no result. Enter one or select one or more options.",
+          "label": "Place date",
+          "placeholder": "Select a place date"
+        },
+        "summary": {
+          "help": "The summary or 'regesta' is a brief description – as concise and precise as possible – of the juridical and historical content of the document. Since Diplomata Belgica was initially a French database, all summaries are written in French. The summaries are based as much as possible on the summaries of existing charter editions. Queries can be entered using the specific DiBe Search syntax.",
+          "label": "Search in summary (in French only)",
+          "placeholder": "Search in summary"
+        }
+      },
+      "legend": {
+        "actors": "Actors",
+        "analysis": "Analysis",
+        "datation": "Datation",
+        "identification": "Identification",
+        "images": "Images"
+      }
+    },
+    "invalidSearchSyntax": "Invalid search syntax",
+    "mapWarning": "The map only shows place-date information. Please refine your search to reduce the result set and include actor places.",
+    "placedateCharters": "Placedate Charters"
+  },
+  "form": {
+    "allAuthors": "All authors",
+    "reset-filters": "Reset all filters"
+  },
+  "label": {
+    "actors": "Actors",
+    "authenticity": "Authenticity",
+    "author": "Author",
+    "authorOfTheActioJuridica": "Author of the actio juridica | Authors of the actio juridica",
+    "authorsOfTheActioJuridica": "Authors of the actio juridica",
+    "beneficiaries": "Beneficiaries",
+    "beneficiary": "Beneficiary | Beneficiaries",
+    "charterId": "DiBe ID",
+    "charters": "Charters",
+    "copies": "Copies",
+    "date": "Date",
+    "dateInTheCharter": "Date in the charter",
+    "diocese": "Diocese",
+    "edition": "Edition | Editions",
+    "editionsAndSecondaryLiterature": "Editions and secondary literature",
+    "fullTextOfCharter": "Full text of charter",
+    "functionTitle": "Function/title",
+    "id": "Id",
+    "images": "Images",
+    "institutionJurisdiction": "Institution/jurisdiction",
+    "issuer": "Issuer | Issuers",
+    "language": "Language | Langues",
+    "links": "Links",
+    "mainBeneficiary": "Main beneficiary",
+    "mainIssuer": "Main issuer",
+    "manuscripts": "Manuscripts",
+    "map": "Map",
+    "name": "Name",
+    "natureOfTheCharter": "Nature of the charter",
+    "no": "No",
+    "original": "Original",
+    "placeDate(inTheText)": "Place-date (in the text)",
+    "placeDate(normalised)": "Place-date (normalised)",
+    "place_date": "Place-date",
+    "principality": "Principality",
+    "reference": "Reference",
+    "religiousOrder": "Religious order",
+    "repository": "Repository",
+    "returnToSearchPage": "Return to search page",
+    "scholarlyDating(any)": "Scholarly dating (any)",
+    "scholarlyDating(preferential)": "Scholarly dating (preferential)",
+    "search": "Search",
+    "secondaryLiterature": "Secondary literature",
+    "source": "Source",
+    "summary": "Summary",
+    "summaryAndDescription": "Summary and description",
+    "textualTradition": "Textual tradition",
+    "tradition": "Tradition | Traditions",
+    "type": "Type",
+    "year": "Year",
+    "yes": "Yes"
+  },
+  "pagination": {
+    "perPage": "Per page"
+  },
+  "selectedItemsBasket": {
+    "selectedCharters": "No charters selected | {count} charter selected | {count} charters selected",
+    "selectedTraditions": "No traditions selected | {count} tradition selected | {count} traditions selected"
+  },
+  "traditions": {
+    "form": {
+      "field": {
+        "images": {
+          "label": "Images available"
+        },
+        "institutionsCoveredByTheManuscript": {
+          "help": "Institution in which a codex (cartulary, register, inventory or any other compiled form) was produced or kept, or of which the charters and title deeds are copied in the codex. Enter one or select one or more options.",
+          "label": "Institutions covered by the manuscript",
+          "placeholder": "Select an institition"
+        },
+        "name": {
+          "help": "The archival repository, library or private collection in which a charter or manuscript (cartulary, register, inventory) is currently kept. Enter one or select one or more options.",
+          "label": "Place of the repository",
+          "placeholder": "Select a name"
+        },
+        "place": {
+          "help": "The place where the relevant archive or library is located. Enter one or select one or more options.",
+          "label": "Place of the repository",
+          "placeholder": "Select a place"
+        },
+        "reference": {
+          "help": "The current shelf mark of a charter or codex, which indicates the place of the document or manuscript within an archival or library collection. Enter one or select one or more options.",
+          "label": "Repository reference",
+          "placeholder": "Select a repository reference"
+        },
+        "steinNumber": {
+          "help": "This list contains the reference numbers to the bibliographical repertory of French cartularies elaborated by Henri Stein, Bibliographie générale des cartulaires français ou relatifs à l'histoire de France (Paris, 1907). Enter one or select one or more options.",
+          "label": "Stein Number",
+          "placeholder": "Select a Stein Number"
+        },
+        "titleOfTheManuscript": {
+          "help": "The title which during the Middle Ages or in later periods was given to the codex (cartulary, register, inventory or any other compiled form). Enter one or select one or more options.",
+          "label": "Title of the manuscript",
+          "placeholder": "Select a manuscript"
+        },
+        "type": {
+          "help": "Select this box if your search should only comprise records containing images of the documents. DiBe Images can be viewed in separate pop-up windows. Use Ctrl/⌘ + or Ctrl/⌘ - (or Ctrl and mousewheel) to increase or reduce the size of the image.",
+          "label": "Type",
+          "placeholder": "Select a type"
+        },
+        "writingMaterial": {
+          "help": "The writing substrate of the codex (cartulary, register, inventory or any other compiled form). Enter one or select one or more options.",
+          "label": "Writing material",
+          "placeholder": "Select a writing material"
+        }
+      },
+      "legend": {
+        "images": "Images",
+        "repository": "Repository",
+        "tradition": "Tradition"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+**/.env
+**/.env.*
+**/.git
+**/.pnpm-store
+**/var
+**/node_modules
+**/vendor
+**/test*
+**/doc
+initdb/20-schema+data.sql*

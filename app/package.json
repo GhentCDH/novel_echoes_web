@@ -1,0 +1,37 @@
+{
+  "devDependencies": {
+    "@intlify/unplugin-vue-i18n": "^6.0.8",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "@vueuse/core": "^12.8.1",
+    "sass": "^1.90.0",
+    "typescript": "^5.9.2",
+    "vite": "^6.1.0",
+    "vite-plugin-static-copy": "^2.2.0",
+    "vite-plugin-symfony": "^7.1.0",
+    "vitest": "^3.1.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "analyze": "NODE_ENV=analyze encore production",
+    "test": "vitest"
+  },
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
+  "dependencies": {
+    "articles": "^0.2.2",
+    "axios": "^1.11.0",
+    "bootstrap": "^5.3.7",
+    "deep-equal": "^2.2.3",
+    "font-awesome-4": "^4.7.4",
+    "jsdom": "^26.1.0",
+    "lodash.merge": "^4.6.2",
+    "qs": "^6.14.0",
+    "ugent-huisstijl-bootstrap5": "github:GhentCDH/UGent-Huisstijl-Bootstrap5",
+    "vue": "^3.5.18",
+    "vue-i18n": "^11.1.11",
+    "vue-multiselect": "^3.3.1",
+    "vue3-form-generator-legacy": "^1.7.2",
+    "wnumb": "^1.2.0"
+  }
+}

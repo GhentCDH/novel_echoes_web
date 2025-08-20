@@ -1,0 +1,226 @@
+.bg-tertiary {
+    background-color: $tertiary;
+}
+
+.bg-primary-light {
+    background-color: $primary-light !important;
+}
+
+.btn-tertiary {
+    background-color: $tertiary;
+    &:hover {
+        background-color: darken($tertiary, 10%);
+    }
+}
+
+.no-float {
+    float: none !important;
+}
+.pull-right {
+    float: right !important;
+}
+.pull-left {
+    float: left !important;
+}
+
+//paddings
+.padding-none {
+    padding: 0;
+}
+.padding-20 {
+    padding: 20px;
+}
+.padding-default {
+    padding: $padding-default-mobile;
+}
+.padding-small {
+    padding: $padding-small-mobile;
+}
+.padding-large {
+    padding: $padding-large-mobile;
+}
+.pbottom-small {
+    padding-bottom: $padding-default-mobile;
+}
+.pbottom-default {
+    padding-bottom: $padding-default-mobile;
+}
+.pbottom-large {
+    padding-bottom: $padding-large-mobile;
+}
+.ptop-default {
+    padding-top: $margin-default-vertical-mobile;
+}
+.ptop-small {
+    padding-top: $padding-small-mobile;
+}
+.ptop-large {
+    padding-top: $padding-large-mobile;
+}
+
+@include media-breakpoint-up(md) {
+    .padding-default {
+        padding: $padding-default;
+    }
+    .pbottom-default {
+        padding-bottom: $padding-default;
+    }
+    .pbottom-large {
+        padding-bottom: $padding-large;
+    }
+    .ptop-default {
+        padding-top: $margin-default-vertical;
+    }
+}
+
+//margins
+.margin-none {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+.margin-bottom-xs {
+    margin-bottom: $margin-default-vertical-mobile;
+    &:last-child {
+        .border-bottom & {
+        @include media-breakpoint-up(sm) {
+            margin-bottom: 0;
+        }
+        }
+    }
+}
+.margin-default {
+    margin: $margin-default-vertical;
+}
+.mbottom-default {
+    margin-bottom: $margin-default-vertical-mobile;
+}
+.\!mbottom-default {
+    margin-bottom: $margin-default-vertical-mobile !important;
+}
+.mtop-default {
+    margin-top: $margin-default-vertical-mobile;
+}
+.\!mtop-default {
+    margin-top: $margin-default-vertical-mobile !important;
+}
+.mtop-small {
+    margin-top: $margin-default-vertical-small-mobile;
+}
+.\!mtop-small {
+    margin-top: $margin-default-vertical-small-mobile !important;
+}
+.mbottom-small {
+    margin-bottom: $margin-default-vertical-small-mobile;
+}
+.\!mbottom-small {
+    margin-bottom: $margin-default-vertical-small-mobile !important;
+}
+.mbottom-20 {
+    margin-bottom: $margin-default-vertical-mobile;
+}
+.mbottom-large {
+    margin-bottom: $margin-large;
+}
+.\!mbottom-large {
+    margin-bottom: $margin-large !important;
+}
+
+
+@include media-breakpoint-up(md) {
+    .margin-default{
+        margin: $margin-default-vertical-mobile;
+    }
+    .mbottom-default {
+        margin-bottom: $margin-default-vertical;
+    }
+    .mbottom-default-sm {
+        margin-bottom: $margin-default-vertical;
+    }
+    .mtop-default {
+        margin-top: $margin-default-vertical;
+    }
+    .mtop-small {
+        margin-top: $margin-default-vertical-small;
+    }
+    .mbottom-small {
+        margin-bottom: $margin-default-vertical-small;
+    }
+    p.mbottom-small {
+        margin-bottom: 20px;
+    }
+    .\!margin-default{
+        margin: $margin-default-vertical-mobile !important;
+    }
+    .\!mbottom-default {
+        margin-bottom: $margin-default-vertical !important;
+    }
+    .\!mbottom-default-sm {
+        margin-bottom: $margin-default-vertical !important;
+    }
+    .\!mtop-default {
+        margin-top: $margin-default-vertical !important;
+    }
+    .\!mtop-small {
+        margin-top: $margin-default-vertical-small !important;
+    }
+    .\!mbottom-small {
+        margin-bottom: $margin-default-vertical-small !important;
+    }
+    p.\!mbottom-small {
+        margin-bottom: 20px !important;
+    }
+
+}
+
+.no-border {
+    border: 0 !important;
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+}
+
+.border-bottom {
+    padding-bottom: $padding-default;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: $margin-default-vertical;
+}   
+
+.border-top {
+    border-top: 1px solid $border-color;
+}
+
+.border-top-invisible {
+    border-top: 1px solid transparent;  
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+    div[class*='col-'] {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.no-gutter-left {
+    padding-left: 0;
+}
+.no-gutter-right {
+    padding-right: 0;
+    &.row {
+        margin-right: 0;
+    }
+}
+
+.no-wrap {
+    white-space: nowrap;
+}

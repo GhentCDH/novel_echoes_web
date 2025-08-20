@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+<div class="row ptop-default">
+    <div class="col-12">
+        <div class="bg-tertiary position-relative z-1 border-top-dibe">
+            <div class="row justify-content-center">
+                <div class="col-8 border-bottom ptop-default">
+                    <h1 class="mbottom-default rosarivo">{{ page_title }}</h1>
+                    {% block page_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

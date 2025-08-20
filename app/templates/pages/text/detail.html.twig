@@ -1,0 +1,24 @@
+{# Remove comments to add a view app to the template #}
+{% extends 'base.html.twig' %}
+
+{% set page_title %}{{ 'Text'|trans }}{% endset %}
+
+{% block body_class %}layout--fullscreen layout--compact{% endblock %}
+
+{% block main %}
+    <div id="app" class="w-100 h-100 overflow-hidden">
+        <text-view-app
+                class="h-100"
+                init-urls="{{ urls }}"></text-view-app>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {{ vite_entry_script_tags('text-view') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ vite_entry_link_tags('text-view') }}
+{% endblock %}

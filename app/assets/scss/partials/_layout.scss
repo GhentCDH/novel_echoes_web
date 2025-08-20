@@ -1,0 +1,12 @@
+// layout updates
+.page__content {
+  display: flex;
+  padding-bottom: 20px;
+
+  // hide before/after when row is flex
+  & > .row {
+    &:before, &:after {
+      display: none;
+    }
+  }
+}

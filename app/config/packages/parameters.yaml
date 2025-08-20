@@ -1,0 +1,6 @@
+parameters:
+  elasticsearch.config:
+      host: '%env(string:ELASTICSEARCH_HOST)%'
+      port: '%env(int:ELASTICSEARCH_PORT)%'
+  elasticsearch.index_prefix: '%env(string:ELASTICSEARCH_INDEX_PREFIX)%'
+  elasticsearch.debug: '%env(bool:ELASTICSEARCH_DEBUG)%'

@@ -1,0 +1,50 @@
+.vue-form-generator {
+
+  .multiselect__content-wrapper {
+    border: 1px solid $input-border;
+  }
+
+  .multiselect__content {
+    width: 100%;
+
+    .multiselect__element {
+      width: 100%;
+      border-bottom: 1px solid #efefef;
+
+      .multiselect__option > div {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        width: 100%;
+
+        .option__title {
+          flex: 1;
+          white-space: normal;
+        }
+      }
+
+      .multiselect__option--any,
+      .multiselect__option--none {
+        color: #ccc;
+      }
+    }
+  }
+
+  .multiselect__select {
+    position: absolute;
+    top: unset;
+    bottom: 2px;
+    right: 8px;
+  }
+
+  .multiselect__clear {
+    position: absolute;
+    top: 7px;
+    right: 8px;
+  }
+}
+
+
+
+
+

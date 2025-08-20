@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('default') }}">
+            <span class="logo">Novel Echoes</span>
+            {% if app.environment != 'prod' %}
+                <span class="text-danger">[{{ app.environment }}]</span>
+            {% endif %}
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {{ app.request.get('_route') == 'text_search' ? 'active' }}"
+                       href="{{ path('text_search') }}">
+                        {{ 'Text'|trans }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

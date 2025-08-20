@@ -1,0 +1,100 @@
+//
+//
+//.__search-app {
+//
+//  .search-app__filters {
+//
+//  }
+//
+//  .search-app__results {
+//
+//    // allow absolute position in header and section
+//    & > header, & > section {
+//      position: relative;
+//    }
+//
+//  }
+//}
+//
+//
+//
+//.layout--fullscreen {
+//
+//  // full height filters & results
+//  .search-app__filters, .search-app__results {
+//    height: 100%;
+//    //padding: 0; // remove col padding
+//  }
+//
+//  .search-app {
+//    flex-wrap: nowrap;
+//
+//    //padding: 0 10px; // remove row padding
+//    //gap: 20px;
+//  }
+//
+//  // flex results
+//  .search-app__results {
+//    display: flex;
+//    flex-direction: column;
+//    overflow: hidden;
+//
+//    // full height tab
+//    .tab-pane {
+//      height: 100%;
+//      overflow: hidden;
+//    }
+//
+//    // full height VueTables
+//    .VueTables {
+//      height: 100%;
+//      display: flex;
+//      flex: 1;
+//      flex-direction: column;
+//      margin: 0;
+//
+//      .table-responsive {
+//        @extend .scrollable
+//      }
+//    }
+//
+//    & > section {
+//      display: flex;
+//      flex: 1;
+//      overflow: hidden;
+//    }
+//  }
+//}
+//
+//.search-page {
+//  table {
+//    .no-wrap {
+//      white-space: nowrap;
+//    }
+//
+//    .checkbox {
+//      margin-top: 0;
+//    }
+//  }
+//}
+
+mark,
+.mark {
+  padding: 0;
+}
+
+/* vue-tables columns */
+.vue-tables__col--id {
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+.vue-tables__col--tm-id {
+  white-space: nowrap;
+  min-width: 70px;
+}
+
+.vue-tables__col--title {
+  white-space: nowrap;
+  min-width: 100px;
+}

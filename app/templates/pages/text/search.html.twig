@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% set page_title %}Search texts{% endset %}
+
+{% block body_class %}layout--fullscreen{% endblock %}
+
+{% block main %}
+    <div id="app" class="w-100 h-100">
+        <text-search-app
+                class="h-100"
+                init-urls="{{ urls }}"
+                title="{{ page_title }}"></text-search-app>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {{ vite_entry_script_tags('text-search') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ vite_entry_link_tags('text-search') }}
+{% endblock %}

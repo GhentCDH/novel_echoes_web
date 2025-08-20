@@ -1,0 +1,69 @@
+label, dt {
+  font-family: $default-font-family, Arial, sans-serif;
+}
+
+.form-control {
+  &.listbox {
+    height: inherit;
+  }
+}
+
+.form-group {
+
+  margin-bottom: 15px;
+
+  .hint {
+    padding-top: .5em;
+  }
+
+  label {
+    user-select: none;
+  }
+}
+
+.radio-list {
+  label {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    input {
+      margin-left: -20px;
+      position: absolute;
+    }
+  }
+}
+
+.form-group-sm {
+  .form-control {
+    font-size: 100%;
+  }
+}
+
+.checkbox-switch .count {
+  background-color: white;
+  color: black;
+  display: inline-block;
+  border: 1px solid #d1d1d1;
+  padding: 3px 8px 2px 8px;
+  margin-left: 0.5em;
+  border-radius: 5px;
+  font-size: 80%;
+  line-height: 1;
+  min-width: 30px;
+  text-align: center;
+}
+
+.input-no-controls {
+  // Chrome, Safari, Edge, Opera
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+  }
+
+  // Firefox
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+

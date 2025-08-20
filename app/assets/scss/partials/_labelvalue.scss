@@ -1,0 +1,29 @@
+.labelvalue {
+    margin-bottom: 5px;   
+}
+
+.labelvalue__label {
+  color: $alt-text-color;
+}
+
+.labelvalue__value > span {
+  padding: 4px 0;
+  color: $black;
+  display: inline-block;
+}
+
+.labelvalue__value--inline > span {
+  padding: 0;
+}
+
+.labelvalue--id_name {
+  .labelvalue__value span:after {
+      content: ', ';
+      margin-right: 0.5em;
+      
+  }
+  
+  .labelvalue__value span:last-child::after {
+      content: '';
+  }
+}
