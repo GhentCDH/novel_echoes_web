@@ -17,7 +17,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ghentcdh/dibe
+            ghentcdh/novel_echoes
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -35,5 +35,5 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=ghentcdh/dibe:buildcache
-          cache-to: type=registry,ref=ghentcdh/dibe:buildcache,mode=max
+          cache-from: type=registry,ref=ghentcdh/novel_echoes:buildcache
+          cache-to: type=registry,ref=ghentcdh/novel_echoes:buildcache,mode=max
