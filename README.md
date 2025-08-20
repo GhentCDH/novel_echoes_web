@@ -1,8 +1,8 @@
-# Diplomata Belgica
+# Novel Echoes web
 
-This repository contains the source code of the [Diplomata Belgica](https://www.diplomata-belgica.be/) database.
+This repository contains the source code of the [Novel Echoes](https://www.novelsaints.ugent.be/) database.
 
-The Diplomata Belgica database consists of a Symphony back-end connected to a MariaDB database and Elasticsearch search engine.
+The Novel Echoes database consists of a Symphony back-end connected to a MariaDB database and Elasticsearch search engine.
 The search and edit pages consist of Vue.js applications.
 
 ## Getting Started
@@ -20,7 +20,7 @@ Run the following command to run the docker services:
 docker compose up --build 
 ```
 
-After the containers are up and running, you can access the Diplomata Belgica database on [localhost:8080](http://localhost:8080).
+After the containers are up and running, you can access the Novel Echoes database on [localhost:8080](http://localhost:8080).
 
 ## Database
 
@@ -37,6 +37,5 @@ During the first run, the startup script will create (if needed) initial indexes
 To index more records, run the following command:
 
 ```sh
-docker exec -it dibe-dev-symfony-1 bin/console app:elasticsearch:index charter [max limit]
-docker exec -it dibe-dev-symfony-1 bin/console app:elasticsearch:index tradition [max limit]
+docker exec -it novel-echoes-dev-symfony-1 bin/console app:elasticsearch:index text [max limit]
 ```
