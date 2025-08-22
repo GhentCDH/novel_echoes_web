@@ -53,10 +53,11 @@ class TextController extends BaseController
             }
             return new JsonResponse($data);
         } else {
-
+            $data = $this->searchService->getSingle($id);
             return $this->render(
                 $this->templateFolder . '/detail.html.twig',
                 [
+                    'title' => $data['title'],
                     'urls' => json_encode($this->getSharedAppUrls()),
                 ]
             );

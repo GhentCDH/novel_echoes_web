@@ -13,6 +13,6 @@ class DefaultController extends AbstractController
      */
     public function index(Request $request): Response
     {
-//        return $this->redirectToRoute("colophon");
+        return $this->redirectToRoute("text_search");
     }
 }
