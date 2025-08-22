@@ -3,7 +3,7 @@
         <article class="d-flex col-sm-8 overflow-hidden">
             <div class="scrollable scrollable--vertical pe-2 pbottom-large w-100">
 
-                <h1 class="pbottom-default">{{ formatTextTitle(text) }}</h1>
+                <h1 class="pbottom-default">{{ text.title }}</h1>
 
                 <dl class="row mb-3">
                     <dt-dd :empty="isEmpty(formatAutorsAsIdLabel(text))" label="Author"><id-label-list :items="formatAutorsAsIdLabel(text)"></id-label-list></dt-dd>
@@ -95,8 +95,8 @@ function urlGeneratorIdName(route: string, filter: string, defaults = {}) {
     return (value: any) => `${getRoute(route)}?${qs.stringify({filters: {...defaults, [filter]: value.id}})}`;
 }
 
-function updateTitle(id: number) {
-    document.title = 'Diplomata Belgica - Charter ID ' + id
+function updateTitle(title: string) {
+    document.title = 'Novel Echoes Database - ' + title
 }
 
 function isEmpty(value: any) {
@@ -130,7 +130,7 @@ function getText(id: number) {
         const currentUrl = window.location.href;
         const newUrl = currentUrl.replace(/(\/text\/)\d+/, `$1${id}`);
         window.history.pushState(null, '', newUrl);
-        updateTitle(id);
+        updateTitle(text?.title || id);
     });
 }
 
