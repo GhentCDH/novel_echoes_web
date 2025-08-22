@@ -157,7 +157,7 @@
     }
 
     &:focus {
-      border-color: $input-border-focus;
+      border-color: $input-focus-border-color;
       outline: none;
     }
   }
@@ -177,7 +177,7 @@
   }
 
   .multiselect__tags {
-    border: 1px solid $input-border;
+    border: 1px solid $input-border-color;
     display: block;
     min-height: 40px; // orig 40
     padding: 8px 40px 0 8px;

@@ -1,35 +1,45 @@
 table {
 
-    th {
-        font-size: $font-size-md;       
-        font-weight: 500;
-    }
+  th {
+    font-weight: $font-weight-bold;
+  }
 
-    ul,
-    ol {
-      padding-left: 18px;
-  
-      li {
-        margin-bottom: 8px;
-        position: relative;
-  
-        a {
-          border-bottom: 1px solid $primary;
-  
-          &:hover,
-          &:focus,
-          &.selected {
-            border-color: transparent;
-            color: $primary;
-          }
+  th.sortable {
+    cursor: pointer;
+
+    .sort-icon {
+      color: #aaa;
+      margin-left: 1em;
+      font-size: $font-size-sm;
+    }
+  }
+
+  ul,
+  ol {
+    padding-left: 18px;
+
+    li {
+      margin-bottom: 8px;
+      position: relative;
+
+      a {
+        border-bottom: 1px solid $primary;
+
+        &:hover,
+        &:focus,
+        &.selected {
+          border-color: transparent;
+          color: $primary;
         }
       }
     }
-  
-    .word-break {
-      word-break: break-all;
-    }
+  }
+
+  .word-break {
+    word-break: break-all;
+  }
 }
+
 .table > :not(:first-child) {
-    border-top: 0px;
+  border-top: 0px;
 }

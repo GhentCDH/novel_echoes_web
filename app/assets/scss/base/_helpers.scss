@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .bg-tertiary {
     background-color: $tertiary;
 }
@@ -9,8 +11,9 @@
 .btn-tertiary {
     background-color: $tertiary;
     &:hover {
-        background-color: darken($tertiary, 10%);
+        background-color: color.adjust($tertiary, $lightness: -10%);
     }
+    color: $black;
 }
 
 .no-float {
