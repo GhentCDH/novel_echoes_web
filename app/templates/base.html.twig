@@ -2,45 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Novel Echoes Database - {{ page_title }}</title>
+    <title>{{ siteTitle }} - {{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
     {% block stylesheets %}
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.2/css/all.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
         {{ vite_entry_link_tags('main') }}
     {% endblock %}
     
     <link rel="manifest" href="{{ asset('build/manifest.json') }}"/>
 
-    <meta name="msapplication-TileColor" content="#ffffff"/>
-    <meta name="msapplication-TileImage" content="{{ asset('build/static/icons/ms-icon-144x144.png') }}"/>
-    <meta name="theme-color" content="#ffffff"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="The Novel Echoes Team">
-
-    <meta property="og:title" content="Novel Echoes Database">
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="">
-    <meta property="og:image" content="{{ app.request.getSchemeAndHttpHost() ~ asset('build/static/images/logo_square.png') }}">
-    <meta property="og:url" content="{{ app.request.uri }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('build/images/favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('build/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('build/images/favicon-48x48.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('build/images/favicon-192x192.png') }}">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ asset('build/images/apple-icon-180x180.png') }}">
 </head>
 <body class="{% block body_class %}{% endblock %}">
 
     {# HEADER #}
-    <header class="container-xl page__header">
-        {% block header %} 
-                <div class="row pageheader pbottom-large">
-                    <div class="col-12">
-                        <!-- NAVBAR -->
-                        {{ include('blocks/navbar.html.twig') }}
-                    </div>
-                </div>
+    <div class="container-xl page__header">
+        {% block header %}
+            {{ include('blocks/header.html.twig') }}
         {% endblock %}
-    </header>
+    </div>
 
     {# CONTENT #}
     <main class="container-xl page__content">

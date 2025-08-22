@@ -1,0 +1,56 @@
+<header class="pageheader row mb-3 mb-md-2">
+    <div class="col-md-2">
+        <div class="nav-container navbar align-items-start">
+            <div class="page-logo">
+                <a href="#" >
+                    <img src="{{ asset('build/images/logo_ugent_nl.svg') }}" alt="Universiteit Gent">
+                </a>
+            </div>
+            <div class="d-md-none me-3 mt-3">
+                <a href="#nav-search" class="navbar-toggler search" data-bs-toggle="collapse" aria-controls="nav-search" aria-expanded="false" aria-label="Toggle search">
+                    <span class="bi bi-search"></span>
+                </a>
+                <a href="#navbar" class="navbar-toggler" data-bs-toggle="collapse" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <nav class="navbar navbar-default navbar-expand-md flex-md-column bg-primary">
+            <div class="order-2 order-md-3 collapse navbar-collapse w-100 bg-white" id="navbar">
+                <ul class="nav-primary nav navbar-nav text-uppercase pt-1 py-md-3">
+                    <li class="{{ app.request.get('_route') == 'text_search' ? 'active' }}">
+                        <a class="nav-link" href="{{ path('text_search') }}">
+                            {{ 'Text'|trans }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="order-3 order-md-1 ms-md-auto collapse navbar-collapse pe-md-4 invisible" id="navbar">
+                <ul class="nav navbar-nav nav-tertiary py-3 px-3 px-md-1">
+                    <li><a href="#">{{ 'For students'|trans }}</a></li>
+                </ul>
+            </div>
+            <div class="order-1 order-md-2 ms-md-auto collapse navbar-collapse mb-md-4 pe-md-4 invisible" id="nav-search">
+                <form class="py-3 py-md-0 bg-white" role="search">
+                    <div class="d-flex input-group">
+                        <input class="form-control" type="search" placeholder="" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">{{ 'Search'|trans  }}</button>
+                    </div>
+                </form>
+            </div>
+        </nav>
+    </div>
+    <!-- Page title -->
+    <div class="col-md-10 offset-md-2 mt-3 mt-md-0 branding-container faculty-1 {{ siteClass }}">
+        <a href="#">
+            <h1>
+                {{ siteTitle }}
+                    {% if app.environment != 'prod' %}
+                        <span class="text-danger">[{{ app.environment }}]</span>
+                    {% endif %}
+            </h1>
+        </a>
+    </div>
+</header>
