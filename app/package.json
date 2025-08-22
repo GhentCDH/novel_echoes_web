@@ -19,9 +19,12 @@
   },
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "dependencies": {
+    "@eonasdan/tempus-dominus": "^6.10.4",
+    "@fortawesome/fontawesome-free": "^7.0.0",
     "articles": "^0.2.2",
     "axios": "^1.11.0",
     "bootstrap": "^5.3.7",
+    "bootstrap-icons": "^1.13.1",
     "deep-equal": "^2.2.3",
     "font-awesome-4": "^4.7.4",
     "jsdom": "^26.1.0",

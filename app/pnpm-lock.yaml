@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@eonasdan/tempus-dominus':
+        specifier: ^6.10.4
+        version: 6.10.4(@popperjs/core@2.11.8)
+      '@fortawesome/fontawesome-free':
+        specifier: ^7.0.0
+        version: 7.0.0
       articles:
         specifier: ^0.2.2
         version: 0.2.2
@@ -17,6 +23,9 @@ importers:
       bootstrap:
         specifier: ^5.3.7
         version: 5.3.7(@popperjs/core@2.11.8)
+      bootstrap-icons:
+        specifier: ^1.13.1
+        version: 1.13.1
       deep-equal:
         specifier: ^2.2.3
         version: 2.2.3
@@ -34,7 +43,7 @@ importers:
         version: 6.14.0
       ugent-huisstijl-bootstrap5:
         specifier: github:GhentCDH/UGent-Huisstijl-Bootstrap5
-        version: https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/c13e68392d6efe981d8b6bb563e98106a69afda7
+        version: https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/7c9179493e6411f832ec7c5fbf8598e6d9d66ae6
       vue:
         specifier: ^3.5.18
         version: 3.5.18(typescript@5.9.2)
@@ -334,6 +343,10 @@ packages:
   '@eslint/plugin-kit@0.3.5':
     resolution: {integrity: sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fortawesome/fontawesome-free@7.0.0':
+    resolution: {integrity: sha512-X48nISrSOa89zu2VMljC4XaRf8NmgTwQBVHfS2Nu5G00ZwM31oOVrAtGxZF3b6wDYf9lJsf/Eq4cCSFKIkOWPQ==}
+    engines: {node: '>=6'}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -1698,8 +1711,8 @@ packages:
   ufo@1.6.1:
     resolution: {integrity: sha512-9a4/uxlTWJ4+a5i0ooc1rU7C7YOw3wT+UGqdeNNHWnOF9qcMBgLRS+4IYUqbczewFx4mLEig6gawh7X6mFlEkA==}
 
-  ugent-huisstijl-bootstrap5@https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/c13e68392d6efe981d8b6bb563e98106a69afda7:
-    resolution: {tarball: https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/c13e68392d6efe981d8b6bb563e98106a69afda7}
+  ugent-huisstijl-bootstrap5@https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/7c9179493e6411f832ec7c5fbf8598e6d9d66ae6:
+    resolution: {tarball: https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/7c9179493e6411f832ec7c5fbf8598e6d9d66ae6}
     version: 1.0.0
 
   universalify@2.0.1:
@@ -2070,6 +2083,8 @@ snapshots:
     dependencies:
       '@eslint/core': 0.15.2
       levn: 0.4.1
+
+  '@fortawesome/fontawesome-free@7.0.0': {}
 
   '@humanfs/core@0.19.1': {}
 
@@ -3492,7 +3507,7 @@ snapshots:
 
   ufo@1.6.1: {}
 
-  ugent-huisstijl-bootstrap5@https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/c13e68392d6efe981d8b6bb563e98106a69afda7:
+  ugent-huisstijl-bootstrap5@https://codeload.github.com/GhentCDH/UGent-Huisstijl-Bootstrap5/tar.gz/7c9179493e6411f832ec7c5fbf8598e6d9d66ae6:
     dependencies:
       '@eonasdan/tempus-dominus': 6.10.4(@popperjs/core@2.11.8)
       '@popperjs/core': 2.11.8

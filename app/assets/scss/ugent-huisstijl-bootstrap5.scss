@@ -1,0 +1,325 @@
+
+@import "fontawesome";
+
+@import "bootstrap/scss/functions";
+$enable-deprecation-messages: false;
+@import "bootstrap/scss/mixins/deprecate";
+@import "bootstrap/scss/mixins/alert";
+
+@import 'bootstrap/scss/bootstrap';
+
+$bootstrap-icons-font-src: "@bootstrap-icons/font/fonts/bootstrap-icons.woff2";
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import 'ugent-huisstijl-bootstrap5/src/scss/bootstrap-3x';
+
+@import 'ugent-huisstijl-bootstrap5/src/scss/base/typography';
+@import 'ugent-huisstijl-bootstrap5/src/scss/base/layout';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/baseline';
+//@import 'ugent-huisstijl-bootstrap5/src/scss/partials/bootstrap-select';
+//@import 'ugent-huisstijl-bootstrap5/src/scss/partials/bootstrap-checkbox';
+//@import 'ugent-huisstijl-bootstrap5/src/scss/partials/datepicker';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/fonts';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/footer';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/form';
+//@import 'ugent-huisstijl-bootstrap5/src/scss/partials/table';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/generic-elements';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/icons';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/pageheader';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/breadcrumb';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/linklist';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-header';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-header-home';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-header-subhome';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-text';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-list';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-image';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-text-image';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-contact';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/content-types';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/buttons';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/lightbox';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/result-item';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/result-header';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/pagination';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/inpage-nav-container';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/panels';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/example-layout';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/quote';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/news-aside';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/newsitem';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/linklist-events';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/linklist-news';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/linklist-newsoverview';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/modal';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/share';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/typeahead';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/banner';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/image-panel';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/date';
+@import 'ugent-huisstijl-bootstrap5/src/scss/base/helpers';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/thumbnail';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/alert';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/bootstrap-overwrites';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/print-overwrites';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/tooltip';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/popover';
+@import 'ugent-huisstijl-bootstrap5/src/scss/partials/datetimepicker';
+
+
+//Fixes
+.pageheader {
+  position: relative;
+  .navbar {
+    @include media-breakpoint-up(md) {
+      min-height: 110px;
+    }
+    input {
+      height: 28px;
+      border: none;
+    }
+    .btn {
+      font-size: $fz-default;
+      height: 28px;
+      line-height: 1px;
+      border: 1px solid $white;
+      min-width: 70px;
+      display: inline-block;
+    }
+  }
+  .navbar-toggler {
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+    .bi {
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      text-align: center;
+      padding-top: 4px;
+    }
+  }
+  .nav-tertiary {
+    font-size: $fz-small;
+    li {
+      margin-right: 20px;
+      a {
+        color: $white;
+        border-bottom: 1px solid transparent;
+        &:hover,
+        &:focus {
+          border-bottom: 1px solid $white;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  .nav-primary {
+    background-color: $white;
+    @include media-breakpoint-up(md){
+      :first-child a {
+        padding-left: 0;
+      }
+    }
+    a {
+      display: block;
+      padding: 0 12px;
+    }
+  }
+
+  @media(max-width: $screen-xs-max){
+    .nav-container {
+      background-color: $brand-primary;
+    }
+    .nav-primary {
+      background-color: $brand-primary;
+      a {
+        display: block;
+        padding: 10px 1rem;
+      }
+    }
+  }
+
+  #nav-search {
+    z-index: 10;
+  }
+}
+
+.breadcrumb {
+  a {
+    &:hover,
+    &:focus {
+      color: $black;
+    }
+  }
+}
+
+.page-footer {
+  .list-inline {
+    @media(min-width: $screen-xs-max){
+      li {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    &.social {
+      li {
+        padding: 0;
+        a {
+          padding: 0 5px;
+          &:hover,
+          &:focus {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  .border-bottom {
+    border-bottom: 1px solid rgba($white, 0.5) !important;
+  }
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.accordion-button::after,
+.accordion-button:not(.collapsed)::after {
+  display: none;
+}
+
+.accordion-button::before{
+  width: var(--bs-accordion-btn-icon-width);
+  height: var(--bs-accordion-btn-icon-width);
+  margin-right: 0.5rem;
+  content: "";
+  background-image: var(--bs-accordion-btn-icon);
+  background-repeat: no-repeat;
+  background-size: var(--bs-accordion-btn-icon-width);
+  transition: var(--bs-accordion-btn-icon-transition);
+}
+
+.accordion-button:not(.collapsed)::before {
+  background-image: var(--bs-accordion-btn-active-icon);
+  transform: var(--bs-accordion-btn-icon-transform);
+}
+
+body > .container-fluid > .row > section {
+  margin-bottom: 0;
+}
+
+.social a:hover {
+  border-bottom: transparent;
+}
+
+.panno-arrow-right {
+  &.float-end {
+    margin-right: 0;
+    margin-left: 6px !important;
+  }
+}
+
+.panno-arrow-right,
+.panno-arrow-left,
+.panno-plus {
+  font-style: normal;
+}
+
+a .fa,
+a .fa-regular {
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+textarea.form-control {
+  height: auto;
+}
+
+.table-sortable {
+  th {
+    cursor: pointer;
+    .no-sort {
+      pointer-events: none;
+    }
+    &:after,  &:before {
+      transition: color 0.1s ease-in-out;
+      color: transparent;
+    }
+    &:hover::after {
+      color: inherit;
+    }
+    &.dir-d::after {
+      font-size: 12px;
+      font-family: $bootstrap-icons-font;
+      color: inherit;
+      content: "\F229";
+      margin-left: 5px;
+      margin-top: 6px;
+    }
+    &.dir-u::after {
+      font-size: 12px;
+      font-family: $bootstrap-icons-font;
+      color: inherit;
+      content: "\F235";
+      margin-left: 5px;
+    }
+  }
+}
+
+.linklist {
+  a {
+    &.active {
+      border-bottom: 1px solid $brand-primary;
+      color: $brand-primary;
+    }
+  }
+}
+
+.content-header-home {
+  margin-bottom: 60px !important;
+  .btn-secondary:hover{
+    color: $black;
+  }
+  @media(max-width: $screen-xs-max){
+    margin-bottom: 120px !important;
+  }
+  .display {
+    position: absolute;
+    @media(max-width: $screen-xs-max){
+      top: 170px;
+    }
+  }
+}
+
+.date-container {
+  background-color: $white;
+}
+
+.branding-container h1 {
+  display: inline-block;
+}
+
+.form-control[type=file] {
+  line-height: 1.5;
+}
+
+.form-control:read-only {
+  background-color: #e9ecef;
+  cursor:default;
+}
+
+.form-control:read-only:focus{
+  cursor:default;
+  outline:none;
+  box-shadow: none;
+  border-color: #ced4da;
+}

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
  */
 class ElasticTextResource extends ElasticBaseResource implements ResourceInterface
 {
+    use TraitFilterPivot;
     public function toArray($request = null): array
     {
         /** @var Text $text */
@@ -35,9 +36,13 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
             'referencedGenres' => 'genre',
         ];
 
+        $ret['title'] = $ret['works'][0]['title'] ?? 'Unknown work';
+        if (isset($ret['works'][0]['locus']) && !empty($ret['works'][0]['locus'])) {
+            $ret['title'] .= " (" . str_replace("0", "", $ret['works'][0]['locus']) .")";
+        }
+
         foreach($referenceMapping as $referenceStore => $referenceType) {
             foreach($ret[$referenceStore] as $reference) {
-                print_r($reference);
                 $ret['references'][] = [
                     "id" => $referenceType.":".$reference['id'],
                     "name" => $reference['name'],
@@ -49,29 +54,13 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
             }
         }
 
+        // sort shortcuts
+        $ret['sortWorks'] = $ret['works'][0]['title'] ?? null;
+        $ret['sortLocus'] = $ret['works'][0]['locus'] ?? null;
+        $ret['sortAuthors'] = $ret['authors'][0]['name'] ?? null;
+        $ret['sortCenturies'] = array_map(fn($c) => $c['order_num'], $ret['works'][0]['centuries'] ?? []);
+        $ret['sortReferences'] = array_map(fn($r) => trim($r['name'], "\ \n\r\t\v\0'"), $ret['references'] ?? []);
         return $ret;
-    }
-
-    public function filterPivot(array $data) {
-        // collection? check for numerical index
-        if (isset($data[0])) {
-            foreach ($data as $key => $value) {
-                $data[$key] = $this->filterPivot($value);
-            }
-            return $data;
-        }
-
-        // single record then
-        if (isset($data['pivot'])) {
-            foreach ($data['pivot'] as $key => $value) {
-                if (in_array($key, ['text', 'locus'])) {
-                    $data[$key] = $value;
-                }
-            }
-            unset($data['pivot']);
-        }
-
-        return $data;
     }
 
 }

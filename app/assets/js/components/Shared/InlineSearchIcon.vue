@@ -1,8 +1,6 @@
 <template>
-    <i class="inline-search-icon px-1 fa fa-search text-primary"></i>
+    <i class="inline-search-icon px-1 fa-solid fa-magnifying-glass text-primary"></i>
 </template>
-<script setup lang="ts">
-</script>
 
 <style lang="scss">
 .inline-search-icon {

@@ -107,19 +107,22 @@ class TextSearchService extends AbstractSearchService
         if (isset($params['orderBy'])) {
             switch ($params['orderBy']) {
                 case 'id':
-                    $params['orderBy'] = [ $params['orderBy'] ];
+                    $params['orderBy'] = [ 'id' ];
                     break;
                 case 'century':
-                    $params['orderBy'] = [ 'works.centuries.order_num' ];
+                    $params['orderBy'] = [ 'sortCenturies' ];
                     break;
                 case 'author':
-                    $params['orderBy'] = [ 'authors.name' ];
+                    $params['orderBy'] = [ 'sortAuthors' ];
                     break;
                 case 'work':
-                    $params['orderBy'] = [ 'works.name' ];
+                    $params['orderBy'] = [ 'sortWorks' ];
                     break;
                 case 'reference':
-                    $params['orderBy'] = [ 'references.name' ];
+                    $params['orderBy'] = [ 'sortReferences' ];
+                    break;
+                case 'locus':
+                    $params['orderBy'] = [ 'sortLocus' ];
                     break;
                 default:
                     unset($params['orderBy']);

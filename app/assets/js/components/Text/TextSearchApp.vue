@@ -6,7 +6,7 @@
 
                     <b-filter-tags :items="getActiveFilterTagStrings()" @onClickClose="onCloseActiveFilter">
                         <template #startButton>
-                            <button class="btn btn-primary" @click="resetAllFilters">
+                            <button class="btn btn-md" @click="resetAllFilters">
                                 {{ t('form.reset-filters') }}
                             </button>
                         </template>
@@ -35,6 +35,7 @@
                                 :per-page="dataTableState.rowsPerPage"
                                 :page="dataTableState.currentPage"
                                 @update:page="(page) => updateDataTableState({currentPage: parseInt(page)})"
+                                label-first="«" label-last="»" label-previous="‹" label-next="›"
                             ></b-pagination>
                         </div>
                         <div class="col-lg-4 d-flex align-items-lg-center justify-content-lg-center">

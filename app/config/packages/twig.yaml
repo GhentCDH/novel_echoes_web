@@ -1,2 +1,6 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    globals:
+        siteTitle: 'Novel Echoes Database'
+        siteClass: ''
+        siteDescription: ''

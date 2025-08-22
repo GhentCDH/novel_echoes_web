@@ -120,10 +120,7 @@ export function sortIdNameByName(a: IdLabel, b: IdLabel): number
 
 export function formatTextTitle(item: any): string
 {
-    let ret = item.title;
-    if (item?.work?.[0]) {
-        ret += ' (' + formatLocus(item.work[0].locus) + ')';
-    }
+    let ret = item?.title ?? 'Unknown work';
 
     return ret
 }
