@@ -1,0 +1,33 @@
+//@import "init";
+
+@import "ugent-huisstijl-bootstrap5-settings";
+
+@import "variables";
+
+@import "ugent-huisstijl-bootstrap5";
+
+//@import "base/helpers";
+
+//@import "base/layouts";
+
+@import "partials/fonts";
+@import "partials/form";
+@import "partials/labelvalue";
+@import "partials/tables";
+@import "partials/pagination";
+@import "partials/loading";
+
+////@import "partials/layout";
+//@import "partials/scrollable";
+////@import "partials/breadcrumb";
+////@import "partials/pageheader";
+//@import "partials/lists";
+//@import "partials/image-thumbnail";
+
+// vue-form-generator
+@import "partials/vue-form-generator/help";
+@import "partials/vue-form-generator/collapsible-group";
+@import "partials/vue-form-generator/multiselect";
+@import "partials/vue-form-generator/multiselect_custom";
+@import "partials/vue-form-generator/fieldset";
+@import "partials/vue-form-generator/dmy_range";

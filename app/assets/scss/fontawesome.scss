@@ -1,0 +1,9 @@
+@use '@fortawesome/fontawesome-free/scss/variables' with (
+    // customizing $font-path - make sure it points to where your webfonts are stored in your project
+  $font-path: "@fortawesome/fontawesome-free/webfonts",
+);
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+@import '@eonasdan/tempus-dominus/src/scss/tempus-dominus';
