@@ -47,9 +47,9 @@
         <a href="#">
             <h1>
                 {{ siteTitle }}
-                    {% if app.environment != 'prod' %}
-                        <span class="text-danger">[{{ app.environment }}]</span>
-                    {% endif %}
+                {% if app.environment != 'prd'  %}
+                    <span class="text-danger">[{{ app.environment }}]</span>
+                {% endif %}
             </h1>
         </a>
     </div>
