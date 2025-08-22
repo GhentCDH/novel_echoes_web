@@ -27,20 +27,12 @@ until curl -s "elasticsearch:9200" > /dev/null; do
 done
 
 # check elasticesearch indices
-curl -f -s -I "elasticsearch:9200/${ELASTICSEARCH_INDEX_PREFIX}_charter" > /dev/null
+curl -f -s -I "elasticsearch:9200/${ELASTICSEARCH_INDEX_PREFIX}_text" > /dev/null
 if [ $? -eq 0 ]; then
-    echo "Charter index already exists"
+    echo "Text index already exists"
 else
-    echo "Creating charter index (100 records max) ..."
+    echo "Creating text index (100 records max) ..."
     php bin/console app:elasticsearch:index charter 100
-fi
-
-curl -f -s -I "elasticsearch:9200/${ELASTICSEARCH_INDEX_PREFIX}_tradition" > /dev/null
-if [ $? -eq 0 ]; then
-    echo "Tradition index already exists"
-else
-    echo "Creating tradition index (100 records max) ..."
-    php bin/console app:elasticsearch:index tradition 100
 fi
 
 # start the symfony server
