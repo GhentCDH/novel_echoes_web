@@ -3,8 +3,11 @@ import vue from "@vitejs/plugin-vue";
 import symfonyPlugin from "vite-plugin-symfony";
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import path from "node:path";
-import { resolve } from 'path'
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+// console.log(resolve(__dirname, 'node_modules/ugent-huisstijl-bootstrap5/dist/fonts/*'))
 
 export default defineConfig({
     plugins: [
@@ -14,13 +17,22 @@ export default defineConfig({
         symfonyPlugin(),
         viteStaticCopy({
             targets: [
+                // {
+                //     src: resolve(__dirname, 'node_modules/ugent-huisstijl-bootstrap5/dist/fonts/*'),
+                //     dest: 'fonts'
+                // },
                 {
-                    src: './assets/images',
+                    src: resolve(__dirname, 'node_modules/ugent-huisstijl-bootstrap5/dist/images/*'),
                     dest: 'images'
-                }
+                },
+                // {
+                //     src: resolve(__dirname, 'node_modules/\@fortawesome/fontawesome-free/webfonts/*'),
+                //     dest: 'webfonts'
+                // },
             ]
         })
     ],
+
     build: {
         manifest: true,
         outDir: "public/build",
@@ -41,9 +53,14 @@ export default defineConfig({
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, './assets/js'),
-            '@assets': path.resolve(__dirname, './assets'),
+            '@': resolve(__dirname, 'assets/js'),
+            '@assets': resolve(__dirname, 'assets'),
             'vue': 'vue/dist/vue.esm-bundler',
+            // required for ugent huisstijl
+            '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
+            '~bootstrap-icons': resolve(__dirname, 'node_modules/bootstrap-icons'),
+            '~@fortawesome': resolve(__dirname, 'node_modules/@fortawesome'),
+            '~@eonasdan': resolve(__dirname, 'node_modules/@eonasdan'),
         },
         extensions: ['.js', '.ts', '.tsx', '.jsx', '.vue'],
     },
