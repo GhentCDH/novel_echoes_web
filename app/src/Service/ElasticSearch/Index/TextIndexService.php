@@ -32,7 +32,21 @@ class TextIndexService extends AbstractIndexService
             'references.id' => [
                 'type' => 'keyword',
             ],
-
+            'sortWorks' => [
+                'type' => 'keyword',
+            ],
+            'sortAuthors' => [
+                'type' => 'keyword',
+            ],
+            'sortCenturies' => [
+                'type' => 'keyword',
+            ],
+            'sortReferences' => [
+                'type' => 'keyword',
+            ],
+            'sortPivot' => [
+                'type' => 'keyword',
+            ],
         ];
     }
 

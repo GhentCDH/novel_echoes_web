@@ -3,6 +3,7 @@ namespace App\Resource\ElasticSearch;
 
 class ElasticWorkResource extends ElasticBaseResource
 {
+    use TraitFilterPivot;
     /**
      * Transform the resource into an array.
      *
@@ -12,7 +13,8 @@ class ElasticWorkResource extends ElasticBaseResource
     public function toArray($request=null): array
     {
         $ret = $this->attributesToArray();
-        $ret['centuries'] = ElasticBaseResource::collection($this->resource->centuries);
+        $ret['locus'] = $this->pivot->locus ?? null;
+        $ret['centuries'] = $this->filterPivot(ElasticBaseResource::collection($this->resource->centuries)->toArray());
 
         return $ret;
     }
