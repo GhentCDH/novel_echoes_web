@@ -1,11 +1,9 @@
 <template>
-    <div class="d-flex align-items-center justify-content-start flex-wrap">
-        <div class="me-1 mt-1">
-            <slot name="startButton"></slot>
-        </div>
-        <span v-for="props in items" class="btn btn-outline-primary me-1 mt-1 nonclickable">
+    <div class="d-flex align-items-center justify-content-start flex-wrap gap-2">
+        <slot name="startButton"></slot>
+        <span v-for="props in items" class="btn btn-md btn-outline-primary" @click="clickClose(props)">
             {{`${props.label}${props.value}`}}
-            <button class="btn btn-close btn-sm btn-close" @click="clickClose(props)"></button>
+            <i class="fa-solid fa-close"></i>
         </span>
     </div>
 </template>
