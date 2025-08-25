@@ -22,7 +22,7 @@ class BaseController extends AbstractController
     protected function getSharedAppUrls(): array {
         // urls
         $urls = [
-            // charter
+            // text
             'text_search' => $this->generateUrl('text_search'),
             'text_search_api' => $this->generateUrl('text_search_api'),
             'text_paginate' => $this->generateUrl('text_paginate'),

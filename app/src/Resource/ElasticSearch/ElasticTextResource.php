@@ -8,7 +8,7 @@ use App\Resource\ResourceInterface;
 use Illuminate\Http\Request;
 
 /**
- * Class ElasticCharterResource
+ * Class ElasticTextResource
  * @package App\Resource
  * @mixin Text
  */
