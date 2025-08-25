@@ -1,13 +1,13 @@
 <template>
-    <b-dropdown class="active ms-auto" :items="selectedIds">
+    <b-dropdown class="active" :items="selectedIds">
         <template #display>
-            {{ t(message ?? 'selectedItemsBasket.message', { count: selectedIds.length }) }}
+            {{ labelBasketDropdown || t('selectedItemsBasket.message', { count: selectedIds.length }) }}
         </template>
         <template #header2>
-            <button class="btn" @click="() => {setSelectedIds([])}"> {{ t('selectedItemsBasket.unselectAll') }}</button>
+            <button v-if="selectedIds.length" class="btn btn-sm" @click="() => {setSelectedIds([])}"> {{ labelUnselectAll || t('selectedItemsBasket.unselectAll') }}</button>
         </template>
         <template #header v-if="selectedIds.length">
-            <a class="btn" target="_blank"
+            <a class="btn btn-sm" target="_blank"
                :href="selectedIds.length ? getHashedUrl(selectedIds[0]) : undefined"
                @mouseup="(event) => {
                    if (selectedIds.length){
@@ -17,11 +17,11 @@
                     }
                }"
             >
-                View Charters
+                {{ labelViewItems || t('selectedItemsBasket.viewItems', { count: selectedIds.length}) }} ({{ selectedIds.length }})
             </a>
         </template>
         <template #item="{item : id, index}">
-            <a class="btn btn-tertiary btn-sm" target="_blank"
+            <a class="btn btn-primary btn-sm" target="_blank"
                :href="getHashedUrl(id)"
                @mouseup="(event) => beforeRedirect(event, dataTableState, id, index, totalRecords, filterState,
                selectedIds.length? selectedIds : null)"
@@ -30,7 +30,7 @@
             </a>
         </template>
         <template #postItem="{item, index}">
-            <button class="btn-close btn-sm" @click="removeSelectedIndex(index)"></button>
+            <button class="btn btn-sm btn-primary" @click="removeSelectedIndex(index)"><i class="fa-solid fa-trash"></i></button>
         </template>
     </b-dropdown>
 </template>
@@ -52,6 +52,9 @@ const props = defineProps<{
     filterState: object;
     beforeRedirect: (event: MouseEvent, dataTableState: DataTableState, id: number, index: number, count: number, filters, ids: number[] | null) => void;
     message: string;
+    labelBasketDropdown: string | null;
+    labelUnselectAll: string | null;
+    labelViewItems: string | null;
 }>();
 </script>
 
@@ -60,13 +63,15 @@ const props = defineProps<{
     "en": {
         "selectedItemsBasket": {
             "message": "No item selected | {count} item selected | {count} items selected",
-            "unselectAll": "Unselect all"
+            "unselectAll": "Unselect all",
+            "viewItems": "View item | View items"
         }
     },
     "fr": {
         "selectedItemsBasket": {
             "message": "Aucun élément sélectionné | {count} élément sélectionné | {count} éléments sélectionnés",
-            "unselectAll": "Tout désélectionner"
+            "unselectAll": "Tout désélectionner",
+            "viewItems": "Voir l'élément | Voir les éléments"
         }
     }
 }
