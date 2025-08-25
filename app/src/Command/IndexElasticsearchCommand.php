@@ -63,15 +63,15 @@ class IndexElasticsearchCommand extends Command
                     $progressBar->start();
 
                     $repository->indexQuery()->chunk(100,
-                        function($charters) use ($service, &$count, $progressBar, $maxItems, $chunkSize): bool {
+                        function($texts) use ($service, &$count, $progressBar, $maxItems, $chunkSize): bool {
                             if ( $maxItems && $count >= $maxItems ) {
                                 return false;
                             }
 
-                            // index charters
-                            $charterResources = ElasticTextResource::collection($charters);
-                            $count += $charterResources->count();
-                            $service->addMultiple($charterResources);
+                            // index texts
+                            $textResources = ElasticTextResource::collection($texts);
+                            $count += $textResources->count();
+                            $service->addMultiple($textResources);
 
                             // update progress bar
                             $progressBar->advance($chunkSize);
