@@ -42,7 +42,7 @@
                             <RecordCount :per-page="dataTableState.rowsPerPage" :total-records="totalRecords"
                                          :page="dataTableState.currentPage"></RecordCount>
                         </div>
-                        <div class="col-lg-4 d-flex align-items-lg-center justify-content-lg-end">
+                        <div class="col-lg-4 d-flex align-items-lg-center justify-content-lg-end gap-1">
                             <b-select :id="'per-page'"
                                       :label="t('pagination.perPage')"
                                       :selected="dataTableState.rowsPerPage"
@@ -50,6 +50,17 @@
                                       @update:selected="(value) => updateDataTableState({rowsPerPage: parseInt(value)})"
                                       class="w-auto"
                             ></b-select>
+                            <selected-items-basket
+                                :selected-ids="selectedIds"
+                                :get-hashed-url="getHashedUrl"
+                                :set-selected-ids="setSelectedIds"
+                                :remove-selected-index="removeSelectedIndex"
+                                :data-table-state="dataTableState"
+                                :total-records="totalRecords"
+                                :filter-state="filterState"
+                                :before-redirect="beforeRedirect"
+                                class="w-auto"
+                            />
                         </div>
                     </nav>
 
@@ -81,7 +92,7 @@
                                 </td>
                             </template>
                             <template #id="props">
-                                <a class="btn btn-tertiary btn-sm" target="_blank"
+                                <a class="btn btn-primary btn-sm" target="_blank"
                                    :href="getHashedUrl(props.row.id)"
                                    @mouseup="(event) => beforeRedirect(
                                                event, dataTableState, props.row.id, props.index, totalRecords,
@@ -256,7 +267,7 @@ const onCloseActiveFilter = (tag: FilterTag) => {
 const {
     getHashedUrl,
     beforeRedirect,
-} = useSearchContext(getRoute('text_search')) // todo: should use charters_get_single route
+} = useSearchContext(getRoute('text_search')) // todo: should use text_get_single route
 
 // useVueFormGeneratorCollapsibleGroups(schema, 'text-search-groups')
 

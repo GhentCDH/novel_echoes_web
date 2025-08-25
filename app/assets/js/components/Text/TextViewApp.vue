@@ -30,6 +30,36 @@
                 </div>
             </div>
         </article>
+        <aside class="d-flex col-sm-4 overflow-hidden">
+            <div class="padding-default bg-tertiary scrollable scrollable--vertical w-100 border-top-dibe">
+                <Widget v-if="validContextAndResultSet()" title="Search" :collapsed="false">
+                    <div class="row mbottom-default">
+                        <div class="form-group">
+                            <span class="btn btn-sm btn-primary" @click="returnToSearchResult">&lt; Return to list</span>
+                        </div>
+                        <div class="col col-3" :class="{ disabled: context.searchIndex === 1}">
+                            <span class="btn btn-sm btn-primary" @click="loadByIndex(1)">
+                                <i class="fa-solid fa-angles-left"></i>
+                            </span>
+                            <span class="btn btn-sm btn-primary" @click="loadByIndex(context.searchIndex - 1)">
+                                <i class="fa-solid fa-angle-left"></i>
+                            </span>
+                        </div>
+
+                        <div class="col col-6 text-center"><span>Result {{ context.searchIndex }} of {{ context.count }}</span></div>
+                        <div class="col col-3 text-right" :class="{ disabled: context.searchIndex === context.count}">
+
+                            <span class="btn btn-sm btn-primary" @click="loadByIndex(context.searchIndex + 1)">
+                                <i class="fa-solid fa-angle-right"></i>
+                            </span>
+                            <span class="btn btn-sm btn-primary" @click="loadByIndex( context.count)">
+                                <i class="fa-solid fa-angles-right"></i>
+                            </span>
+                        </div>
+                    </div>
+                </Widget>
+            </div>
+        </aside>
         <div
             v-if="openRequests"
             class="loading-overlay"
@@ -118,7 +148,7 @@ const {
     context,
     initContextFromUrl,
     initResultSet,
-    loadByIndex: loadTextByIndex,
+    loadByIndex,
     returnToSearchResult,
     validContextAndResultSet,
     setOnIdChanged,
@@ -130,7 +160,7 @@ function getText(id: number) {
         const currentUrl = window.location.href;
         const newUrl = currentUrl.replace(/(\/text\/)\d+/, `$1${id}`);
         window.history.pushState(null, '', newUrl);
-        updateTitle(text?.title || id);
+        updateTitle(text.value?.title || id);
     });
 }
 
