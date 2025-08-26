@@ -78,7 +78,7 @@ abstract class AbstractIndexService extends AbstractService implements IndexServ
 
     public function add(ResourceInterface $resource): void
     {
-        $document = new Document($resource->getId(), $resource->toJson());
+        $document = new Document($resource->getId(), $resource->jsonSerialize());
         $this->getIndex()->addDocument($document);
         $this->getIndex()->refresh();
     }
@@ -98,6 +98,13 @@ abstract class AbstractIndexService extends AbstractService implements IndexServ
     public function get(string $id): array|string {
         $ret = $this->getIndex()->getDocument($id)->getData();
         return $ret;
+    }
+
+    public function update(ResourceInterface $resource): void
+    {
+        $document = new Document($resource->getId(), $resource->jsonSerialize());
+        $this->getIndex()->updateDocument($document);
+        $this->getIndex()->refresh();
     }
 
     /*

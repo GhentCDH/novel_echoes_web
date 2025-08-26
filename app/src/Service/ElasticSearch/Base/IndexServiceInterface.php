@@ -13,8 +13,7 @@ interface IndexServiceInterface
     public function get(string $id): array|string;
     public function delete(string $id): void;
     public function deleteMultiple(array $ids): void;
-
     public function add(ResourceInterface $resource): void;
-
+    public function update(ResourceInterface $resource): void;
     public function addMultiple(ResourceCollection $resources): void;
 }
