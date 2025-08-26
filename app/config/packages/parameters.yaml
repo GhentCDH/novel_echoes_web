@@ -4,3 +4,5 @@ parameters:
       port: '%env(int:ELASTICSEARCH_PORT)%'
   elasticsearch.index_prefix: '%env(string:ELASTICSEARCH_INDEX_PREFIX)%'
   elasticsearch.debug: '%env(bool:ELASTICSEARCH_DEBUG)%'
+
+  reindexTextWebhook.apiKey: '%env(string:REINDEX_TEXT_WEBHOOK_API_KEY)%'

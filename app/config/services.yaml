@@ -39,7 +39,7 @@ services:
         class: App\Service\ElasticSearch\Index\TextIndexService
         arguments: ['@elastic_search_client', '%elasticsearch.index_prefix%']
         public: true
-    App\Service\ElasticSearch\Index\TextIndexService: '@charter_index_service'
+    App\Service\ElasticSearch\Index\TextIndexService: '@text_index_service'
 
     text_search_service:
         class: App\Service\ElasticSearch\Search\TextSearchService
