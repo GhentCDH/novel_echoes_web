@@ -12,7 +12,7 @@ use function Symfony\Component\String\u;
 trait TraitCustomModelSchema {
 
     private function createJoinTableName(array $parts): string {
-        return implode('_', $parts);
+        return implode('__', $parts);
     }
 
     private function createPK(string $table): string {
@@ -158,8 +158,7 @@ trait TraitCustomModelSchema {
      */
     public function hasManyThrough($related, $through, $firstKey = null, $secondKey = null, $localKey = null, $secondLocalKey = null)
     {
-//        $related_table = u((new ReflectionClass($related))->getShortName())->snake();
-//        $related_pk = $related_table.'_id';
+        // todo:  check if this is correct
         $through_table = u((new ReflectionClass($through))->getShortName())->snake();
         $through_pk = $through_table.'_id';
 
