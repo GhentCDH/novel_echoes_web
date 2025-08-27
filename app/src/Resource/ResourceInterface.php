@@ -8,4 +8,5 @@ interface ResourceInterface
 {
     public function getId(): string;
     public function toJson($options = 0);
+    public function jsonSerialize(): array;
 }
