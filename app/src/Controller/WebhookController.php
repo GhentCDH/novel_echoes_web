@@ -80,7 +80,7 @@ class WebhookController extends AbstractController {
                             $indexService->add(new ElasticTextResource($text));
                             break;
                     }
-                    return new JsonResponse(['success' => true]);
+                    return new JsonResponse(['success' => true, 'reindexed' => 1, 'id' => [$primaryKey]]);
                 } catch (\Exception $e) {
                     return new JsonResponse(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
                 }
@@ -94,7 +94,7 @@ class WebhookController extends AbstractController {
                             return new JsonResponse(['error' => "Text with id {$data['text_id']} not found"], Response::HTTP_NOT_FOUND);
                         }
                         $indexService->update(new ElasticTextResource($text));
-                        return new JsonResponse(['success' => true, 'reindexed' => 1]);
+                        return new JsonResponse(['success' => true, 'reindexed' => 1,'id' => [$data['text_id']]]);
                     } catch (\Exception $e) {
                         return new JsonResponse(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
                     }
@@ -103,17 +103,17 @@ class WebhookController extends AbstractController {
                 // map table names to text model relation names
                 $relationMapper = [
                     'author' => 'authors',
-                    'work' => 'works',
-                    'text_type' => 'textTypes',
-                    'referenced_genre' => 'referencedGenres',
-                    'referenced_person' => 'referencedPersons',
-                    'referenced_work' => 'referencedWorks',
-                    'text__referenced_genre' => 'referencedGenres',
-                    'text__referenced_person' => 'referencedPersons',
-                    'text__referenced_work' => 'referencedWorks',
                     'text__author' => 'authors',
+                    'work' => 'works',
                     'text__work' => 'works',
+                    'text_type' => 'textTypes',
                     'text__text_type' => 'textTypes',
+                    'referenced_genre' => 'referencedGenres',
+                    'text__referenced_genre' => 'referencedGenres',
+                    'referenced_person' => 'referencedPersons',
+                    'text__referenced_person' => 'referencedPersons',
+                    'referenced_work' => 'referencedWorks',
+                    'text__referenced_work' => 'referencedWorks',
                 ];
 
                 // related record update?
@@ -125,13 +125,13 @@ class WebhookController extends AbstractController {
                         $texts = $repository->defaultQuery()->whereRelation($relationName, "${tableName}.${tableName}_id", "=", $primaryKey)->get();
 
                         if ($texts->count() === 0) {
-                            return new JsonResponse(['success' => true, 'reindexed' => 0]);
+                            return new JsonResponse(['success' => true, 'reindexed' => 0, 'id' => []]);
                         }
 
                         $textResources = ElasticTextResource::collection($texts);
                         $indexService->updateMultiple($textResources);
 
-                        return new JsonResponse(['success' => true, 'reindexed' => $texts->count()]);
+                        return new JsonResponse(['success' => true, 'reindexed' => $texts->count(), 'id' => $texts->pluck('text_id')]);
                     } catch (\Exception $e) {
                         return new JsonResponse(['error' => $e->getMessage()], Response::HTTP_INTERNAL_SERVER_ERROR);
                     }
