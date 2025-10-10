@@ -12,7 +12,7 @@ export interface Reference extends IdLabel {
 export type IdLabelList = IdLabel[]
 export type ReferenceList = Reference[]
 
-export function formatCenturiesAsIdLabel(item: any): IdLabelList
+export function formatTextCenturiesAsIdLabel(item: any): IdLabelList
 {
     const centuriesMap = new Map()
     // console.log(item.works.map(w => w.centuries))
@@ -34,7 +34,7 @@ export function formatCenturiesAsIdLabel(item: any): IdLabelList
     return ret
 }
 
-export function formatWorksAsIdLabel(item: any): IdLabelList
+export function formatTextWorksAsIdLabel(item: any): IdLabelList
 {
     if (!item.works || !Array.isArray(item.works)) {
         return []
@@ -49,7 +49,17 @@ export function formatWorksAsIdLabel(item: any): IdLabelList
     return works
 }
 
-export function formatAutorsAsIdLabel(item: any): IdLabelList
+export function formatTextWorkLocus(item: any): string|null
+{
+    if (!item.works || !Array.isArray(item.works)) {
+        return null
+    }
+
+    const locuses = item.works.map( w => w.locus ).filter( (l: string|null) => l !== null ).join(' ')
+    return formatLocus(locuses)
+}
+
+export function formatTextAuthorsAsIdLabel(item: any): IdLabelList
 {
     if (!item.authors || !Array.isArray(item.authors)) {
         return []
@@ -64,7 +74,7 @@ export function formatAutorsAsIdLabel(item: any): IdLabelList
     return authors
 }
 
-export function formatReferences(item: any): ReferenceList
+export function formatTextReferences(item: any): ReferenceList
 {
     if (!item.references || !Array.isArray(item.references)) {
         return []
@@ -129,5 +139,5 @@ export function formatTextTitle(item: any): string
 export function formatLocus(locus: string): string
 {
     // replace all zero characters with empty string
-    return locus.replace(/(^|\.|-)0+/g, '$1');
+    return locus.replace(/(^|\s|\.|-)0+/g, '$1');
 }

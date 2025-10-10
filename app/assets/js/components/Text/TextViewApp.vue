@@ -6,8 +6,8 @@
                 <h1 class="pbottom-default">{{ text.title }}</h1>
 
                 <dl class="row mb-3">
-                    <dt-dd :empty="isEmpty(formatAutorsAsIdLabel(text))" label="Author"><id-label-list :items="formatAutorsAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
-                    <dt-dd :empty="isEmpty(formatCenturiesAsIdLabel(text))" label="Century"><id-label-list :items="formatCenturiesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
+                    <dt-dd :empty="isEmpty(formatTextAuthorsAsIdLabel(text))" label="Author"><id-label-list :items="formatTextAuthorsAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
+                    <dt-dd :empty="isEmpty(formatTextCenturiesAsIdLabel(text))" label="Century"><id-label-list :items="formatTextCenturiesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
                     <dt-dd :empty="isEmpty(text.text)" label="Text"><span class="greek">{{ text.text }}</span></dt-dd>
                     <dt-dd :empty="isEmpty(text.edition)" label="Edition">{{ text.edition }}</dt-dd>
                     <dt-dd :empty="isEmpty(formatTextTypesAsIdLabel(text))" label="Type"><id-label-list :items="formatTextTypesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
@@ -17,7 +17,7 @@
 
                 <h2>Reference(s) to</h2>
 
-                <div class="card mb-3 rounded-0" v-for="(item, index) in formatReferences(text)" :key="index">
+                <div class="card mb-3 rounded-0" v-for="(item, index) in formatTextReferences(text)" :key="index">
                     <div class="card-header">
                         <h3 class="m-0">{{ item.label }}</h3>
                     </div>
@@ -78,7 +78,7 @@ import * as qs from "qs";
 import textRepository from "@/repositories/TextRepository.ts";
 
 import {
-    formatAutorsAsIdLabel, formatCenturiesAsIdLabel, formatReferences,
+    formatTextAuthorsAsIdLabel, formatTextCenturiesAsIdLabel, formatTextReferences,
     formatTextTitle, formatTextTypesAsIdLabel
 } from "./Formatters.ts"
 import {useI18n} from "vue-i18n";

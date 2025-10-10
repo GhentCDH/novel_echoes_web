@@ -48,7 +48,8 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
                     "name" => $reference['name'],
                     'type' => $referenceType,
                     "locus" => $reference['locus'] ?? null,
-                    "sortLocus" => self::locusToInt($reference['locus'] ?? null),
+                    // todo: clean data before sorting is possible
+                    //"sortLocus" => self::locusToInt($reference['locus'] ?? null),
                     "text" => $reference['text'] ?? null,
                     "${referenceType}_id" => $reference['id'],
                     "id_name" => $referenceType.":".$reference['id_name'],
@@ -75,9 +76,11 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
         if ($locus === null) {
             return null;
         }
-        $value = explode('-', $locus)[0]; // take only the first part if there's a range
-        $value = str_replace('.', '', trim($value)); // remove dots
-        return (int)$value;
+        $locusParts = explode('.',explode('-', trim($locus))[0]); // take only the first part if there's a range
+        if (count($locusParts) < 3) {
+            return null;
+        }
+        return  ((int)$locusParts[0])*1000000 + ((int)$locusParts[1])*1000 + ((int)$locusParts[2]);
     }
 
 }
