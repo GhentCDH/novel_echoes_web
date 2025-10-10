@@ -102,28 +102,28 @@
                                 </a>
                             </template>
                             <template #century="props">
-                                <IdLabelList :items="formatCenturiesAsIdLabel(props.item)" class="d-flex flex-column">
+                                <IdLabelList :items="formatTextCenturiesAsIdLabel(props.item)" class="d-flex flex-column">
                                     <template #after="{item}">
                                         <InlineSearchIcon class="px-1" @click="setModel(defaultModel); updateFilterState({ century: [item.id] })"></InlineSearchIcon>
                                     </template>
                                 </IdLabelList>
                             </template>
                             <template #work="props">
-                                <IdLabelList :items="formatWorksAsIdLabel(props.item)" class="d-flex flex-column">
+                                <IdLabelList :items="formatTextWorksAsIdLabel(props.item)" class="d-flex flex-column" itemClass="fst-italic">
                                     <template #after="{item}">
                                         <InlineSearchIcon class="px-1" @click="updateFilterState({ work: [item.id] })"></InlineSearchIcon>
                                     </template>
                                 </IdLabelList>
                             </template>
                             <template #author="props">
-                                <IdLabelList :items="formatAutorsAsIdLabel(props.item)" class="d-flex flex-column">
+                                <IdLabelList :items="formatTextAuthorsAsIdLabel(props.item)" class="d-flex flex-column">
                                     <template #after="{item}">
                                         <InlineSearchIcon class="px-1" @click="updateFilterState({ author: [item.id] })"></InlineSearchIcon>
                                     </template>
                                 </IdLabelList>
                             </template>
                             <template #reference="props">
-                                <ReferenceDetails :references="formatReferences(props.item)" class="d-flex flex-column">
+                                <ReferenceDetails :references="formatTextReferences(props.item)" class="d-flex flex-column">
                                     <template #after="{item}">
                                         <InlineSearchIcon class="px-1" @click="updateFilterState({ reference: [item.id] })"></InlineSearchIcon>
                                     </template>
@@ -171,10 +171,10 @@ import {useItemsBasket} from "@/composables/useItemsBasket.ts";
 import {useUrlGenerator} from "@/composables/useUrlGenerator.ts";
 import FormatValue from "@/components/Sidebar/FormatValue.vue";
 import {
-    formatAutorsAsIdLabel,
-    formatCenturiesAsIdLabel,
-    formatReferences,
-    formatWorksAsIdLabel,
+    formatTextAuthorsAsIdLabel,
+    formatTextCenturiesAsIdLabel,
+    formatTextReferences, formatTextWorkLocus,
+    formatTextWorksAsIdLabel,
 } from "./Formatters.ts";
 import IdLabelList from "@/components/Shared/IdLabelList.vue";
 import InlineSearchIcon from "@/components/Shared/InlineSearchIcon.vue";
@@ -207,6 +207,7 @@ const tableOptions = {
         {key: 'century', label: t('Century'), sortable: true, thClass: 'no-wrap'},
         {key: 'author', label: t('Author'), sortable: true, thClass: 'no-wrap'},
         {key: 'work', label: t('Work'), sortable: true, thClass: 'no-wrap'},
+        {key: 'locus', label: t('Locus'), sortable: false, thClass: 'no-wrap'},
         {key: 'reference', label: t('References'), sortable: true, thClass: 'no-wrap'},
     ],
     pagination: {
