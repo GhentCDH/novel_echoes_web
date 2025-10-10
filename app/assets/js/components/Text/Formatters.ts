@@ -129,5 +129,5 @@ export function formatTextTitle(item: any): string
 export function formatLocus(locus: string): string
 {
     // replace all zero characters with empty string
-    return locus.replace(/0/g, '');
+    return locus.replace(/(^|\.|-)0+/g, '$1');
 }
