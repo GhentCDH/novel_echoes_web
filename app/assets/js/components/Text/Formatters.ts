@@ -74,7 +74,8 @@ export function formatReferences(item: any): ReferenceList
             id: r.id,
             label: r.name,
             type: r.type,
-            locus: r.locus ? formatLocus(r.locus) : undefined
+            locus: r.locus ? formatLocus(r.locus) : undefined,
+            text: r.text ?? null,
         }
     })
 
