@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <dl class="row mb-0">
                             <dt-dd :empty="isEmpty(item.locus)" label="Locus">{{ item.locus }}</dt-dd>
-                            <dt-dd :empty="isEmpty(item.text)" label="Text">{{ item.text }}</dt-dd>
+                            <dt-dd :empty="isEmpty(item.text)" label="Text"><span class="greek">{{ item.text }}</span></dt-dd>
                         </dl>
                     </div>
                 </div>
