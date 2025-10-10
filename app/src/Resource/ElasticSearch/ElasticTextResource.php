@@ -48,6 +48,7 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
                     "name" => $reference['name'],
                     'type' => $referenceType,
                     "locus" => $reference['locus'] ?? null,
+                    "text" => $reference['text'] ?? null,
                     "${referenceType}_id" => $reference['id'],
                     "id_name" => $referenceType.":".$reference['id_name'],
                 ];
