@@ -115,6 +115,9 @@
                                     </template>
                                 </IdLabelList>
                             </template>
+                            <template #locus="props">
+                                {{ formatTextWorkLocus(props.item) }}
+                            </template>
                             <template #author="props">
                                 <IdLabelList :items="formatTextAuthorsAsIdLabel(props.item)" class="d-flex flex-column">
                                     <template #after="{item}">

@@ -49,7 +49,16 @@ export function formatTextWorksAsIdLabel(item: any): IdLabelList
     return works
 }
 
-export function formatAutorsAsIdLabel(item: any): IdLabelList
+export function formatTextWorkLocus(item: any): string|null
+{
+    if (!item.works || !Array.isArray(item.works)) {
+        return null
+    }
+
+    const locuses = item.works.map( w => w.locus ).filter( (l: string|null) => l !== null ).join(' ')
+    return formatLocus(locuses)
+}
+
 export function formatTextAuthorsAsIdLabel(item: any): IdLabelList
 {
     if (!item.authors || !Array.isArray(item.authors)) {
