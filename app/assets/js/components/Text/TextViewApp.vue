@@ -8,7 +8,7 @@
                 <dl class="row mb-3">
                     <dt-dd :empty="isEmpty(formatAutorsAsIdLabel(text))" label="Author"><id-label-list :items="formatAutorsAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
                     <dt-dd :empty="isEmpty(formatCenturiesAsIdLabel(text))" label="Century"><id-label-list :items="formatCenturiesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
-                    <dt-dd :empty="isEmpty(text.text)" label="Text">{{ text.text }}</dt-dd>
+                    <dt-dd :empty="isEmpty(text.text)" label="Text"><span class="greek">{{ text.text }}</span></dt-dd>
                     <dt-dd :empty="isEmpty(text.edition)" label="Edition">{{ text.edition }}</dt-dd>
                     <dt-dd :empty="isEmpty(formatTextTypesAsIdLabel(text))" label="Type"><id-label-list :items="formatTextTypesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
                     <dt-dd :empty="isEmpty(text.source)" label="Source">{{ text.source }}</dt-dd>

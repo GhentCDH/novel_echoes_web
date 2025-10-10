@@ -1,0 +1,38 @@
+// font path is relative to screen.scss, not this file!
+$nau-font-path: '../fonts/new-athena-unicode';
+
+@font-face {
+  font-family: 'NewAthenaUnicode';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$nau-font-path}/newathu5_5.woff');
+  src: url('#{$nau-font-path}/newathu5_5.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NewAthenaUnicodeBold';
+  font-style: normal;
+  font-weight: bold;
+  src: url('#{$nau-font-path}/newathuBold5_5.woff');
+  src: url('#{$nau-font-path}/newathuBold5_5.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NewAthenaUnicodeBoldItalic';
+  font-style: italic;
+  font-weight: bold;
+  src: url('#{$nau-font-path}/newathuBoldItalic5_5.woff');
+  src: url('#{$nau-font-path}/newathuBoldItalic5_5.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'NewAthenaUnicodeItalic';
+  font-style: italic;
+  font-weight: normal;
+  src: url('#{$nau-font-path}/newathuItalic5_5.woff');
+  src: url('#{$nau-font-path}/newathuItalic5_5.woff') format('woff');
+}
+
+.greek {
+  font-family: NewAthenaUnicode, Arial, sans-serif;
+}
