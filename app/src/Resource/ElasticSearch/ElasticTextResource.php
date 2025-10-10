@@ -48,6 +48,7 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
                     "name" => $reference['name'],
                     'type' => $referenceType,
                     "locus" => $reference['locus'] ?? null,
+                    "sortLocus" => self::locusToInt($reference['locus'] ?? null),
                     "text" => $reference['text'] ?? null,
                     "${referenceType}_id" => $reference['id'],
                     "id_name" => $referenceType.":".$reference['id_name'],
@@ -55,13 +56,28 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
             }
         }
 
+        // sort references by name and sortLocus
+        usort($ret['references'], fn($a, $b) => strcmp($a['name'] ?? '', $b['name'] ?? '') ?: ($a['sortLocus'] ?? 0) <=> ($b['sortLocus'] ?? 0));
+//        usort($ret['references'], fn($a, $b) => ($a['sortLocus'] ?? 0) <=> ($b['sortLocus'] ?? 0));
+
         // sort shortcuts
         $ret['sortWorks'] = $ret['works'][0]['title'] ?? null;
-        $ret['sortLocus'] = $ret['works'][0]['locus'] ?? null;
+        $ret['sortLocus'] = self::locusToInt($ret['works'][0]['locus'] ?? null);
         $ret['sortAuthors'] = $ret['authors'][0]['name'] ?? null;
         $ret['sortCenturies'] = array_map(fn($c) => $c['order_num'], $ret['works'][0]['centuries'] ?? []);
         $ret['sortReferences'] = array_map(fn($r) => trim($r['name'], "\ \n\r\t\v\0'"), $ret['references'] ?? []);
         return $ret;
+    }
+
+    // converts a text locus (004.012.003-004) into an integer (40012003), used for  sorting
+    public static function locusToInt(?string $locus): ?int
+    {
+        if ($locus === null) {
+            return null;
+        }
+        $value = explode('-', $locus)[0]; // take only the first part if there's a range
+        $value = str_replace('.', '', trim($value)); // remove dots
+        return (int)$value;
     }
 
 }
