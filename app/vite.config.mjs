@@ -7,7 +7,6 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-// console.log(resolve(__dirname, 'node_modules/ugent-huisstijl-bootstrap5/dist/fonts/*'))
 
 export default defineConfig({
     plugins: [
@@ -34,7 +33,7 @@ export default defineConfig({
     ],
 
     build: {
-        manifest: true,
+        manifest: 'manifest.json',
         outDir: "public/build",
         rollupOptions: {
             input: {
