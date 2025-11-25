@@ -121,9 +121,6 @@ class TextSearchService extends AbstractSearchService
                 case 'reference':
                     $params['orderBy'] = [ 'sortReferences' ];
                     break;
-                case 'locus':
-                    $params['orderBy'] = [ 'sortLocus' ];
-                    break;
                 default:
                     unset($params['orderBy']);
                     break;

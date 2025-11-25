@@ -24,7 +24,7 @@ class Text extends AbstractModel
 
     public function works(): BelongsToMany
     {
-        return $this->belongsToMany(Work::class)->withPivot('locus');
+        return $this->belongsToMany(Work::class)->withPivot('locus', 'locus_order');
     }
 
     public function textTypes(): BelongsToMany
@@ -34,17 +34,17 @@ class Text extends AbstractModel
 
     public function referencedGenres(): BelongsToMany
     {
-        return $this->belongsToMany(ReferencedGenre::class)->using(TextReferencedGenre::class)->withPivot('locus', 'text');
+        return $this->belongsToMany(ReferencedGenre::class)->using(TextReferencedGenre::class)->withPivot('locus', 'text', 'locus_order');
     }
 
     public function referencedWorks(): BelongsToMany
     {
-        return $this->belongsToMany(ReferencedWork::class)->withPivot('locus', 'text');
+        return $this->belongsToMany(ReferencedWork::class)->withPivot('locus', 'text', 'locus_order');
     }
 
     public function referencedPersons(): BelongsToMany
     {
-        return $this->belongsToMany(ReferencedPerson::class)->withPivot('locus', 'text');
+        return $this->belongsToMany(ReferencedPerson::class)->withPivot('locus', 'text', 'locus_order');
     }
 
 }

@@ -13,7 +13,10 @@ class ElasticWorkResource extends ElasticBaseResource
     public function toArray($request=null): array
     {
         $ret = $this->attributesToArray();
+        // get properties from pivot table
         $ret['locus'] = $this->pivot->locus ?? null;
+        $ret['locus_order'] = $this->pivot->locus_order ?? null;
+
         $ret['centuries'] = $this->filterPivot(ElasticBaseResource::collection($this->resource->centuries)->toArray());
 
         return $ret;
