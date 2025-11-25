@@ -22,13 +22,13 @@ const referenceClass = (ref: Reference) => {
     <span
         v-for="ref in references"
         :key="ref.id"
-        class="reference-item" :class="referenceClass(ref)"
+        :class="referenceClass(ref)" class="reference-item"
     >
-        <slot name="before" :item="ref"/>
-      <span class="reference-text">{{ ref.label }}</span>
+        <slot :item="ref" name="before"/>
+        <span class="reference-text">{{ ref.label }}</span>
         <span v-if="ref.locus"> &#187; </span>
-      <span v-if="ref.locus" class="reference-locus">{{ ref.locus }}</span>
-        <slot name="after" :item="ref"/>
+        <span v-if="ref.locus" class="reference-locus">{{ ref.locus }}</span>
+        <slot :item="ref" name="after"/>
     </span>
     </div>
 </template>
