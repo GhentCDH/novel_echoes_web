@@ -48,8 +48,7 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
                     "name" => $reference['name'],
                     'type' => $referenceType,
                     "locus" => $reference['locus'] ?? null,
-                    // todo: clean data before sorting is possible
-                    //"sortLocus" => self::locusToInt($reference['locus'] ?? null),
+                    "locus_order" => $reference['locus_order'] ?? 0,
                     "text" => $reference['text'] ?? null,
                     "${referenceType}_id" => $reference['id'],
                     "id_name" => $referenceType.":".$reference['id_name'],
@@ -58,12 +57,17 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
         }
 
         // sort references by name and sortLocus
-        usort($ret['references'], fn($a, $b) => strcmp($a['name'] ?? '', $b['name'] ?? '') ?: ($a['sortLocus'] ?? 0) <=> ($b['sortLocus'] ?? 0));
-//        usort($ret['references'], fn($a, $b) => ($a['sortLocus'] ?? 0) <=> ($b['sortLocus'] ?? 0));
+        usort($ret['references'], fn($a, $b) => strcmp($a['name'] ?? '', $b['name'] ?? '') ?: ($a['locus_order'] ?? 0) <=> ($b['locus_order'] ?? 0));
+
+        // sort works by title and locus_order
+        usort($ret['works'], fn($a, $b) =>
+            strcmp($a['name'] ?? '', $b['name'] ?? '')
+                ?: ($a['locus_order'] ?? 0) <=> ($b['locus_order'] ?? 0)
+                ?: static::compareLocusParts(static::parseLocus($a['locus'] ?? null), static::parseLocus($b['locus'] ?? null)));
 
         // sort shortcuts
         $ret['sortWorks'] = $ret['works'][0]['title'] ?? null;
-        $ret['sortLocus'] = self::locusToInt($ret['works'][0]['locus'] ?? null);
+        $ret['sortLocus'] = $ret['works'][0]['locus_order'] ?? null;
         $ret['sortAuthors'] = $ret['authors'][0]['name'] ?? null;
         $ret['sortCenturies'] = array_map(fn($c) => $c['order_num'], $ret['works'][0]['centuries'] ?? []);
         $ret['sortReferences'] = array_map(fn($r) => trim($r['name'], "\ \n\r\t\v\0'"), $ret['references'] ?? []);
@@ -71,16 +75,58 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
     }
 
     // converts a text locus (004.012.003-004) into an integer (40012003), used for  sorting
-    public static function locusToInt(?string $locus): ?int
+    public static function locusToArray(?string $locus): ?int
     {
         if ($locus === null) {
+            return 0;
+        }
+
+        $reg = '/([0-9]+(\.[0-9]+)+)/m';
+        preg_match_all($reg, $locus, $matches, PREG_SET_ORDER, 0);
+        if (count($matches) === 0) {
             return null;
         }
+
+
+
         $locusParts = explode('.',explode('-', trim($locus))[0]); // take only the first part if there's a range
         if (count($locusParts) < 3) {
             return null;
         }
         return  ((int)$locusParts[0])*1000000 + ((int)$locusParts[1])*1000 + ((int)$locusParts[2]);
+    }
+
+    // extract a standard locus notation (123.457.784) into an array of its parts
+    public static function parseLocus(?string $locus): array
+    {
+        if ($locus === null) {
+            return [];
+        }
+
+        $reg = '/([0-9]+(\.[0-9]+)+)/m';
+        preg_match_all($reg, $locus, $matches, PREG_SET_ORDER, 0);
+        if (count($matches) === 0) {
+            return [];
+        }
+
+        return explode('.', $matches[0][1]);
+    }
+
+    // sort locus parts based on first item, second item and so on
+    public static function compareLocusParts(?array $a, ?array $b): int
+    {
+        $maxLength = max(count($a ?? []), count($b ?? []));
+        for ($i = 0; $i < $maxLength; $i++) {
+            $aPart = intval($a[$i] ?? 0);
+            $bPart = intval($b[$i] ?? 0);
+            if ($aPart < $bPart) {
+                return -1;
+            } elseif ($aPart > $bPart) {
+                return 1;
+            }
+            // equal? continue to next part
+        }
+        return 0;
     }
 
 }
