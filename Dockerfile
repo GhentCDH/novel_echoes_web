@@ -25,7 +25,7 @@ RUN mkdir -p -m 0600 ~/.ssh && \
 
 # instal pnpm
 RUN npm install --global corepack@latest
-RUN corepack enable
+RUN corepack enable && corepack prepare pnpm@latest --activate
 
 # NODE-PROD
 FROM node-base AS node-prod
