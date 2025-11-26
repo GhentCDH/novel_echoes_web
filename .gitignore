@@ -13,6 +13,6 @@ node_modules
 .idea/
 .env.*
 .pnpm-store
-app/src/Controller/TestController.php
+Test*.php
 initdb/020-schema+data.sql*
 doc/
