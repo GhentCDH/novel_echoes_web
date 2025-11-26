@@ -6,11 +6,17 @@
                 <h1 class="pbottom-default">{{ text.title }}</h1>
 
                 <dl class="row mb-3">
-                    <dt-dd :empty="isEmpty(formatTextAuthorsAsIdLabel(text))" label="Author"><id-label-list :items="formatTextAuthorsAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
-                    <dt-dd :empty="isEmpty(formatTextCenturiesAsIdLabel(text))" label="Century"><id-label-list :items="formatTextCenturiesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
-                    <dt-dd :empty="isEmpty(text.text)" label="Text"><span class="greek">{{ text.text }}</span></dt-dd>
+                    <dt-dd :empty="isEmpty(formatTextAuthorsAsIdLabel(text))" label="Author">
+                        <id-label-list :items="formatTextAuthorsAsIdLabel(text)" item-class="me-1"></id-label-list>
+                    </dt-dd>
+                    <dt-dd :empty="isEmpty(formatTextCenturiesAsIdLabel(text))" label="Century">
+                        <id-label-list :items="formatTextCenturiesAsIdLabel(text)" item-class="me-1"></id-label-list>
+                    </dt-dd>
+                    <dt-dd :empty="isEmpty(text.text)" label="Text"><span class="greek"><span v-html="formatWithLineBreaks(text.text)"></span></span></dt-dd>
                     <dt-dd :empty="isEmpty(text.edition)" label="Edition">{{ text.edition }}</dt-dd>
-                    <dt-dd :empty="isEmpty(formatTextTypesAsIdLabel(text))" label="Type"><id-label-list :items="formatTextTypesAsIdLabel(text)" item-class="me-1"></id-label-list></dt-dd>
+                    <dt-dd :empty="isEmpty(formatTextTypesAsIdLabel(text))" label="Type">
+                        <id-label-list :items="formatTextTypesAsIdLabel(text)" item-class="me-1"></id-label-list>
+                    </dt-dd>
                     <dt-dd :empty="isEmpty(text.source)" label="Source">{{ text.source }}</dt-dd>
                     <dt-dd :empty="isEmpty(text.info)" label="Info">{{ text.info }}</dt-dd>
                 </dl>
@@ -24,7 +30,8 @@
                     <div class="card-body">
                         <dl class="row mb-0">
                             <dt-dd :empty="isEmpty(item.locus)" label="Locus">{{ item.locus }}</dt-dd>
-                            <dt-dd :empty="isEmpty(item.text)" label="Text"><span class="greek">{{ item.text }}</span></dt-dd>
+                            <dt-dd :empty="isEmpty(item.text)" label="Text"><span class="greek">{{ item.text }}</span>
+                            </dt-dd>
                         </dl>
                     </div>
                 </div>
@@ -35,7 +42,8 @@
                 <Widget v-if="validContextAndResultSet()" title="Search" :collapsed="false">
                     <div class="row mbottom-default">
                         <div class="form-group">
-                            <span class="btn btn-sm btn-primary" @click="returnToSearchResult">&lt; Return to list</span>
+                            <span class="btn btn-sm btn-primary"
+                                  @click="returnToSearchResult">&lt; Return to list</span>
                         </div>
                         <div class="col col-3" :class="{ disabled: context.searchIndex === 1}">
                             <span class="btn btn-sm btn-primary" @click="loadByIndex(1)">
@@ -46,7 +54,9 @@
                             </span>
                         </div>
 
-                        <div class="col col-6 text-center"><span>Result {{ context.searchIndex }} of {{ context.count }}</span></div>
+                        <div class="col col-6 text-center"><span>Result {{ context.searchIndex }} of {{
+                                context.count
+                            }}</span></div>
                         <div class="col col-3 text-right" :class="{ disabled: context.searchIndex === context.count}">
 
                             <span class="btn btn-sm btn-primary" @click="loadByIndex(context.searchIndex + 1)">
@@ -86,7 +96,7 @@ import {useUrlGenerator} from "@/composables/useUrlGenerator.ts";
 import DtDd from "@/components/Text/DtDd.vue";
 import IdLabelList from "@/components/Shared/IdLabelList.vue";
 
-const { t } = useI18n();
+const {t} = useI18n();
 
 const props = defineProps({
     initUrls: {
@@ -98,7 +108,7 @@ const props = defineProps({
 const urls = JSON.parse(props.initUrls)
 const data = ref<{ text: any }>({} as { text: any })
 
-const { createTextUrl, getRoute } = useUrlGenerator(urls);
+const {createTextUrl, getRoute} = useUrlGenerator(urls);
 
 // Initialize
 const text = computed(() => data.value.text)
@@ -173,6 +183,13 @@ if (context.value.validReadContext && !context.value.ids) {
     let readContext: Context = toValue(context);
     initResultSet(readContext, (new URL(readContext.prevUrl)).pathname + "/paginate"); //TODO how to fix url in composition API?
 }
+
+// create a method to create a html safe version of a string, replace newlines with <br> tags
+function formatWithLineBreaks(text: string): string {
+    if (!text) return '';
+    return text.replace('<', ' &lt;').replace('>', '; &gt;').replace(/\n/g, '<br>');
+}
+
 
 </script>
 
