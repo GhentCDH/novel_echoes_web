@@ -3,6 +3,7 @@
 namespace App\Service\ElasticSearch\Search;
 
 use App\Helper\DibeQueryToElasticQuery;
+use App\Helper\RomanNumeralParser;
 use App\Service\ElasticSearch\Base\AbstractSearchService;
 
 class TextSearchService extends AbstractSearchService
@@ -66,6 +67,7 @@ class TextSearchService extends AbstractSearchService
                 'type' => self::AGG_OBJECT_ID_NAME,
                 'field' => 'works.centuries',
                 'nestedPath' => 'works',
+                'sortFn' => fn($a, $b) => RomanNumeralParser::toInteger($a) <=> RomanNumeralParser::toInteger($b),
             ],
 
             'textType' => [
