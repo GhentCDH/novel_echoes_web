@@ -153,6 +153,11 @@ class WebhookController extends AbstractController {
             return new JsonResponse(['error' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
         }
 
+        $expectedKey =  $this->getParameter('reindexTextWebhook.apiKey') ?? null;
+        if (!$expectedKey || $apiKey !== $expectedKey) {
+            return new JsonResponse(['error' => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
+        }
+
         try {
             $indexName = $indexService->createNewIndex();
 
