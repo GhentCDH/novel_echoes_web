@@ -70,6 +70,12 @@ class AggregationConfig implements SearchConfigInterface
             }
         }
 
+        // sort options
+        $config['sort'] = !isset($config['sort']) || (bool)$config['sort'];
+        if ( !isset($config['sortFn']) || !is_callable($config['sortFn']) ) {
+            $config['sortFn'] = strnatcasecmp(...);
+        }
+
         return $config;
     }
 

@@ -3,7 +3,6 @@
 namespace App\Service\ElasticSearch\Base;
 
 use App\Resource\ResourceInterface;
-use Elastica\Document;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 interface IndexServiceInterface
