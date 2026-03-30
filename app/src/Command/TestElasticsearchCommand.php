@@ -40,9 +40,22 @@ class TestElasticsearchCommand extends Command
         $repository = $this->container->get('text_repository');
 
         /** @var $text Text */
-        $text = $repository->find(8);
+        $text = $repository->find(260);
 
         $res = new ElasticTextResource($text);
+
+        dump(ElasticTextResource::compareLocusParts([1],[2]));
+        dump(ElasticTextResource::compareLocusParts([1,2],[2]));
+        dump(ElasticTextResource::compareLocusParts([1],[2,1]));
+        dump(ElasticTextResource::compareLocusParts([1],[1,2]));
+        dump(ElasticTextResource::compareLocusParts([1,2,3],[1,2,4]));
+        dump(ElasticTextResource::compareLocusParts([1,2,4],[1,2,3]));
+        dump(ElasticTextResource::compareLocusParts(
+            ElasticTextResource::parseLocus('1.2.3'),
+            ElasticTextResource::parseLocus('1.2.4')
+        ));
+
+
 
         dump($res->toJson(JSON_PRETTY_PRINT));
         return Command::SUCCESS;
