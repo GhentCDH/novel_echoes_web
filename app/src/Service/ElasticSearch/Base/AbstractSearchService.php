@@ -1664,6 +1664,9 @@ abstract class AbstractSearchService extends AbstractService implements SearchSe
         if (!$agg_result) {
             return;
         }
+        if (!$aggConfig['sort']) {
+            return;
+        }
         usort($agg_result, function ($a, $b) use ($aggConfig) {
 
             // Place 'any', 'none' filters above
@@ -1682,7 +1685,7 @@ abstract class AbstractSearchService extends AbstractService implements SearchSe
                 return -1;
             }
 
-            return strnatcasecmp($a['name'], $b['name']);
+            return $aggConfig['sortFn']($a['name'], $b['name']);
         });
     }
 
