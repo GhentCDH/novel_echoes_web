@@ -2,11 +2,8 @@
 
 namespace App\Command;
 
-use App\Model\Text;
 use App\Repository\TextRepository;
-use App\Repository\RepositoryInterface;
 use App\Resource\ElasticSearch\ElasticTextResource;
-use App\Resource\ElasticSearch\ElasticTraditionResource;
 use App\Service\ElasticSearch\Index\TextIndexService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -14,26 +11,22 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class IndexElasticsearchCommand extends Command
 {
-    protected static $defaultName = 'app:elasticsearch:index';
-    protected static $defaultDescription = 'Drops the old elasticsearch index and recreates it.';
-
     protected $container = [];
     protected $di = [];
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(protected TextIndexService $textIndexService)
     {
-        $this->container = $container;
-        parent::__construct();
+        parent::__construct('app:elasticsearch:index');
     }
 
     protected function configure()
     {
         $this
-            ->setDescription(self::$defaultDescription)
+            ->setDescription('Drops the old elasticsearch index and recreates it.')
             ->addArgument('index', InputArgument::REQUIRED, 'Which index should be reindexed?')
             ->addArgument('maxItems', InputArgument::OPTIONAL, 'Max number of items to index')
             ->setHelp('This command allows you to reindex elasticsearch.');
@@ -49,11 +42,9 @@ class IndexElasticsearchCommand extends Command
         if ($index = $input->getArgument('index')) {
             switch ($index) {
                 case 'text':
-                    /** @var $repository TextRepository */
-                    $repository = $this->container->get('text_repository' );
+                    $repository = new TextRepository();
 
-                    /** @var $service TextIndexService */
-                    $service = $this->container->get('text_index_service');
+                    $service = $this->textIndexService;
                     $indexName = $service->createNewIndex();
 
                     $total = $repository->indexQuery()->count();
