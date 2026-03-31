@@ -1,8 +1,15 @@
 parameters:
   elasticsearch.config:
-      host: '%env(string:ELASTICSEARCH_HOST)%'
-      port: '%env(int:ELASTICSEARCH_PORT)%'
+    host: '%env(default::string:ELASTICSEARCH_HOST)%'
+    port: '%env(default::int:ELASTICSEARCH_PORT)%'
+    transport: '%env(default::string:ELASTICSEARCH_TRANSPORT)%'
+    url: '%env(default::string:ELASTICSEARCH_URL)%'
+    username: '%env(default::string:ELASTICSEARCH_USERNAME)%'
+    password: '%env(default::string:ELASTICSEARCH_PASSWORD)%'
+    ssl_verification: '%env(default::bool:ELASTICSEARCH_SSL_VERIFICATION)%'
+
   elasticsearch.index_prefix: '%env(string:ELASTICSEARCH_INDEX_PREFIX)%'
-  elasticsearch.debug: '%env(bool:ELASTICSEARCH_DEBUG)%'
+  elasticsearch.debug_default: false
+  elasticsearch.debug: '%env(default:elasticsearch.debug_default:bool:ELASTICSEARCH_DEBUG)%'
 
   reindexTextWebhook.apiKey: '%env(string:REINDEX_TEXT_WEBHOOK_API_KEY)%'
