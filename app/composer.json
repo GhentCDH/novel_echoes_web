@@ -10,11 +10,8 @@
         "ext-curl": "*",
         "ext-iconv": "*",
         "ext-json": "*",
-        "ajcastro/eager-load-pivot-relations": "^0.2.2",
         "composer/package-versions-deprecated": "1.11.99.1",
-        "doctrine/annotations": "^2.0",
         "illuminate/http": "^10.0",
-        "kirschbaum-development/eloquent-power-joins": "^2.5",
         "pentatrion/vite-bundle": "^7.1",
         "phpdocumentor/reflection-docblock": "^5.2",
         "ramsey/uuid": "^4.7",
@@ -51,7 +48,6 @@
         "wouterj/eloquent-bundle": "^2.0"
     },
     "require-dev": {
-        "rector/rector": "^2.0",
         "symfony/browser-kit": "^6.4",
         "symfony/css-selector": "^6.4",
         "symfony/debug-bundle": "^6.4",

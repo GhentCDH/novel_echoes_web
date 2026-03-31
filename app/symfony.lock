@@ -1,21 +1,6 @@
 {
-    "ajcastro/eager-load-pivot-relations": {
-        "version": "v0.2.2"
-    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
-    },
-    "doctrine/annotations": {
-        "version": "2.0",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "1.0",
-            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
-        },
-        "files": [
-            "config/routes/annotations.yaml"
-        ]
     },
     "doctrine/deprecations": {
         "version": "1.1",
@@ -89,9 +74,6 @@
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
-    "kirschbaum-development/eloquent-power-joins": {
-        "version": "2.5.1"
-    },
     "laminas/laminas-code": {
         "version": "4.2.1"
     },
@@ -130,15 +112,6 @@
     },
     "phpdocumentor/type-resolver": {
         "version": "1.4.0"
-    },
-    "phpstan/phpstan": {
-        "version": "2.1",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "main",
-            "version": "1.0",
-            "ref": "5e490cc197fb6bb1ae22e5abbc531ddc633b6767"
-        }
     },
     "psr/cache": {
         "version": "1.0.1"
