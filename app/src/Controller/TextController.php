@@ -23,9 +23,7 @@ class TextController extends BaseController
         $this->searchService = $searchService;
     }
 
-    /**
-     * @Route("/text", name="text_search", methods={"GET"})
-     */
+    #[Route(path: '/text', name: 'text_search', methods: ['GET'])]
     public function texts(Request $request): Response
     {
         $urls = $this->getSharedAppUrls();
@@ -41,9 +39,7 @@ class TextController extends BaseController
         );
     }
 
-    /**
-     * @Route("/text/{id}", name="text_get_single", priority=-10, methods={"GET"})
-     */
+    #[Route(path: '/text/{id}', name: 'text_get_single', priority: -10, methods: ['GET'])]
     public function text(string $id, Request $request): Response
     {
         if (in_array('application/json', $request->getAcceptableContentTypes())) {
@@ -68,9 +64,7 @@ class TextController extends BaseController
         }
     }
 
-    /**
-     * @Route("/text/search", name="text_search_api", methods={"GET"})
-     */
+    #[Route(path: '/text/search', name: 'text_search_api', methods: ['GET'])]
     public function search(Request $request): Response
     {
         $mode = SearchMode::fromValue($request->query->get('mode', null)) ?: SearchMode::SEARCH_AGGREGATE;
@@ -78,9 +72,7 @@ class TextController extends BaseController
         return $this->_searchAPI($request, $mode);
     }
 
-    /**
-     * @Route("/text/paginate", name="text_paginate", methods={"GET"})
-     */
+    #[Route(path: '/text/paginate', name: 'text_paginate', methods: ['GET'])]
     public function paginate(Request $request): Response
     {
         return $this->_paginate($request);
