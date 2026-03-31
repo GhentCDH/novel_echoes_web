@@ -8,9 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HealthController extends BaseController
 {
-    /**
-     * @Route("/health", name="health", methods={"GET"})
-     */
+    #[Route(path: '/health', name: 'health', methods: ['GET'])]
     public function health(Request $request): JsonResponse
     {
         return new JsonResponse(['status' => 'ok']);

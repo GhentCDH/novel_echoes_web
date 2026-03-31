@@ -31,7 +31,13 @@ class BaseResource extends JsonResource implements ResourceInterface
      */
     public function toArray($request = null)
     {
-        return parent::toArray($request);
+        if (is_null($this->resource)) {
+            return [];
+        }
+
+        return is_array($this->resource)
+            ? $this->resource
+            : $this->resource->toArray();
     }
 
     /**
@@ -54,7 +60,7 @@ class BaseResource extends JsonResource implements ResourceInterface
      */
     public function resolve($request = null): array
     {
-        $data = $this->toArray(null);
+        $data = $this->toArray();
 
         if ($data instanceof Arrayable) {
             $data = $data->toArray();
@@ -73,7 +79,7 @@ class BaseResource extends JsonResource implements ResourceInterface
      */
     public static function collection($resource): BaseResourceCollection
     {
-        return tap(new BaseResourceCollection($resource, static::class), function ($collection) {
+        return tap(new BaseResourceCollection($resource, static::class), function ($collection): void {
             if (property_exists(static::class, 'preserveKeys')) {
                 $collection->preserveKeys = (new static([]))->preserveKeys === true;
             }

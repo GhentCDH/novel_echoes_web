@@ -22,10 +22,7 @@ class WebhookController extends AbstractController {
         $this->searchService = $searchService;
     }
 
-    /**
-     * @Route("/webhook/reindex", name="webhook_reindex", methods={"POST"})
-     *
-     */
+    #[Route(path: '/webhook/reindex', name: 'webhook_reindex', methods: ['POST'])]
     public function reindex(Request $request, TextRepository $repository, TextIndexService $indexService): JsonResponse
     {
         // validate webhook key
@@ -141,10 +138,7 @@ class WebhookController extends AbstractController {
         }
     }
 
-    /**
-     * @Route("/webhook/reindex/all", name="webhook_reindex_all", methods={"POST"})
-     *
-     */
+    #[Route(path: '/webhook/reindex/all', name: 'webhook_reindex_all', methods: ['POST'])]
     public function reindexAll(Request $request, TextRepository $repository, TextIndexService $indexService): JsonResponse
     {
         // validate webhook key

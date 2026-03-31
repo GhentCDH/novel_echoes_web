@@ -27,6 +27,9 @@ services:
         resource: '../src/Controller/'
         tags: ['controller.service_arguments']
 
+    # todo: remove this!
+    Symfony\Component\DependencyInjection\ContainerInterface: '@service_container'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
     elastic_search_client:
