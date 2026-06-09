@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+const nodePort = Number(process.env.APP_NODE_PORT) || 5173
+
 export default defineConfig({
     plugins: [
         vue(),
@@ -46,9 +48,9 @@ export default defineConfig({
     server: {
         // Respond to all network requests
         host: true,
-        port: 5173,
+        port: nodePort,
         strictPort: true,
-        origin: 'http://localhost:5173'
+        origin: `http://localhost:${nodePort}`
     },
     resolve: {
         alias: {
