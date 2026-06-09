@@ -12,16 +12,19 @@ export interface Reference extends IdLabel {
 export type IdLabelList = IdLabel[]
 export type ReferenceList = Reference[]
 
-export function formatTextCenturiesAsIdLabel(item: any): IdLabelList
+export function formatTextCenturiesAsIdLabel(item: any, desc: boolean = false): IdLabelList
 {
     const centuriesMap = new Map()
-    // console.log(item.works.map(w => w.centuries))
     item.works.map( w => w.centuries ).flat().forEach(c => {
         centuriesMap.set(c.id, c)
     })
 
     const centuries = Array.from(centuriesMap.values())
-    centuries.sort((a,b) => a.order_num - b.order_num)
+    if (desc) {
+        centuries.sort((a,b) => b.order_num - a.order_num)
+    } else {
+        centuries.sort((a,b) => a.order_num - b.order_num)
+    }
 
     const ret = centuries.map(i => {
         return {
@@ -30,7 +33,6 @@ export function formatTextCenturiesAsIdLabel(item: any): IdLabelList
         }
     })
 
-    ret.sort(sortIdNameByName)
     return ret
 }
 

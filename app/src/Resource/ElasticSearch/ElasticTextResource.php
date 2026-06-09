@@ -78,7 +78,9 @@ class ElasticTextResource extends ElasticBaseResource implements ResourceInterfa
         $ret['sortWorks'] = $ret['works'][0]['title'] ?? null;
         $ret['sortAuthors'] = $ret['authors'][0]['name'] ?? null;
         $ret['sortCenturies'] = array_map(fn($c) => $c['order_num'], $ret['works'][0]['centuries'] ?? []);
-        $ret['sortReferences'] = array_map(fn($r) => trim($r['name'], "\ \n\r\t\v\0'"), $ret['references'] ?? []);
+//        $ret['sortReferences'] = array_map(fn($r) => trim($r['name'], "\ \n\r\t\v\0'"), $ret['references'] ?? []);
+        $ret['sortReferences'] = array_map(fn($r) => $r["locus_order"], $ret['references'] ?? []);
+
         return $ret;
     }
 
