@@ -39,10 +39,10 @@ class TextIndexService extends AbstractIndexService
                 'type' => 'keyword',
             ],
             'sortCenturies' => [
-                'type' => 'keyword',
+                'type' => 'integer',
             ],
             'sortReferences' => [
-                'type' => 'keyword',
+                'type' => 'integer',
             ],
             'sortPivot' => [
                 'type' => 'keyword',
