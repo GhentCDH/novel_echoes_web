@@ -102,7 +102,7 @@
                                 </a>
                             </template>
                             <template #century="props">
-                                <IdLabelList :items="formatTextCenturiesAsIdLabel(props.item)" class="d-flex flex-column">
+                                <IdLabelList :items="formatTextCenturiesAsIdLabel(props.item, reverseSortCenturies)" class="d-flex flex-column">
                                     <template #after="{item}">
                                         <InlineSearchIcon class="px-1" @click="setModel(defaultModel); updateFilterState({ century: [item.id] })"></InlineSearchIcon>
                                     </template>
@@ -150,7 +150,7 @@
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
 
-import {onMounted, ref, shallowRef, watch} from 'vue'
+import {computed, onMounted, ref, shallowRef, watch} from 'vue'
 
 
 import BPagination from "../Bootstrap/BPagination.vue";
@@ -274,6 +274,10 @@ const {
 } = useSearchContext(getRoute('text_search')) // todo: should use text_get_single route
 
 // useVueFormGeneratorCollapsibleGroups(schema, 'text-search-groups')
+
+const reverseSortCenturies = computed(() => {
+    return dataTableState.value.orderBy === 'century' && !dataTableState.value.orderAsc
+})
 
 // search api
 
