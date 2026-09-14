@@ -35,6 +35,10 @@
                         </dl>
                     </div>
                 </div>
+                <dl v-if="acknowledgement || entryAuthor" class="row mb-3">
+                    <dt-dd v-if="acknowledgement" label="Acknowledgement"><span class="entry-credit">{{ acknowledgement }}</span></dt-dd>
+                    <dt-dd v-if="entryAuthor" label="Entry author"><span class="entry-credit">{{ entryAuthor }}</span></dt-dd>
+                </dl>
             </div>
         </article>
         <aside class="d-flex col-sm-4 overflow-hidden">
@@ -112,6 +116,8 @@ const {createTextUrl, getRoute} = useUrlGenerator(urls);
 
 // Initialize
 const text = computed(() => data.value.text)
+const acknowledgement = computed(() => text.value?.acknowledgement?.trim() || '')
+const entryAuthor = computed(() => text.value?.entry_author?.trim() || '')
 
 const segments = window.location.pathname.split('/');
 const id = Number(segments[segments.length - 1]);
@@ -194,4 +200,7 @@ function formatWithLineBreaks(text: string): string {
 </script>
 
 <style scoped lang="scss">
+.entry-credit {
+    white-space: pre-line;
+}
 </style>
